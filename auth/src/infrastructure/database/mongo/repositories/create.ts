@@ -1,5 +1,6 @@
 import { User } from "@/infrastructure/database/mongo/models";
 import { UserEntity } from "@/domain/entities";
+import { userCreatedProducer } from "@/infrastructure/messages/kafka/producers";
 
 export const create = async (
     data: UserEntity
@@ -11,6 +12,9 @@ export const create = async (
         if (!newUser) {
             throw new Error("User creation failed!");
         }
+
+        //produce-user-creation-message
+        await userCreatedProducer(newUser);
 
         return newUser;
 

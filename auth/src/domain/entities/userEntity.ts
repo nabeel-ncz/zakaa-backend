@@ -45,4 +45,5 @@ export interface UserEntity {
     isBlocked: boolean;
     createdAt?: Date;
     updatedAt?: Date;
+    otp?: string;
 }
