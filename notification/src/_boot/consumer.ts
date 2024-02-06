@@ -1,6 +1,6 @@
-import { consumer } from "@/_lib/messages/kafka";
 import { AUTH_SERVICE_TOPIC } from "@zakaa/common";
-import { createSubscriber, INotificationSubscriber } from "@/_lib/messages/kafka";
+import { consumer } from "@/infrastructure/messages/kafka/index";
+import { createSubscriber, INotificationSubscriber } from "@/infrastructure/messages/kafka";
 
 export const startConsumer = async () => {
     try {
