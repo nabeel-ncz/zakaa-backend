@@ -28,8 +28,8 @@ const userSchema = new Schema({
     },
     role: {
         type: String,
-        required: true,
-        enum: ["student", "instructor", "admin"]
+        enum: ["student", "instructor", "admin"],
+        default: "student"
     },
     profile: {
         avatar: {
