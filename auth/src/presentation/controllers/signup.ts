@@ -26,12 +26,14 @@ export const signupController = (dependencies: IDependencies) => {
 
             const accessToken = generateAccessToken({
                 _id: String(result?._id),
-                email: result?.email!
+                email: result?.email!,
+                role: result?.role!
             });
 
             const refreshToken = generateRefreshToken({
                 _id: String(result?._id),
-                email: result?.email!
+                email: result?.email!,
+                role: result?.role!
             });
 
             res.cookie("access_token", accessToken, {
