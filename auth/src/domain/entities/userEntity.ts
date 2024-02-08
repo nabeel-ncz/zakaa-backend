@@ -16,7 +16,6 @@ interface SocialMedia {
     instagram?: string;
     linkedIn?: string;
     github?: string;
-    youtube?: string;
 }
 
 interface Contact {
@@ -41,9 +40,10 @@ export interface UserEntity {
     role: Role;
     profile?: Profile;
     contact?: Contact;
-    isVerified: boolean;
     isBlocked: boolean;
+    isVerified: boolean;
     createdAt?: Date;
     updatedAt?: Date;
     otp?: string;
+    profession?: string;
 }
