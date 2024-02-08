@@ -6,8 +6,8 @@ export const config = {
         port: envNumber('PORT', 3001)
     },
     mongo: {
-        database: envString('DB_NAME', 'zakaa'),
-        host: envString('DB_HOST', ''),
+        database: envString('DB_NAME', 'zakaa_auth'),
+        host: envString('DB_HOST', 'mongodb://127.0.0.1:27017'),
         username: envString('DB_USERNAME', 'mongo_username'),
         password: envString('DB_PASSWORD', 'mongo_password')
     },
