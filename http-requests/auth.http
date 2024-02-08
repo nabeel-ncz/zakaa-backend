@@ -1,0 +1,10 @@
+
+@base = http://̥localhost:5000
+
+POST {{base}}/api/auth
+Content-Type: application/json
+@body
+{
+  
+}
+
