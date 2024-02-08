@@ -3,7 +3,8 @@ import jwt from "jsonwebtoken";
 export const generateRefreshToken = (
     payload: {
         _id: string,
-        email: string
+        email: string,
+        role: string
     }
 ) => {
     return jwt.sign(
