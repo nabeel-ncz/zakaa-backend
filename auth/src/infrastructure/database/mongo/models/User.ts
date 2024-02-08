@@ -13,12 +13,14 @@ const userSchema = new Schema({
     username: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        index: true
     },
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        index: true
     },
     password: {
         type: String,
@@ -51,17 +53,22 @@ const userSchema = new Schema({
         socialMedia: {
             instagram: String,
             linkedIn: String,
-            github: String,
-            youtube: String
+            github: String
         }
+    },
+    isBlocked: {
+        type: Boolean,
+        default: false
     },
     isVerified: {
         type: Boolean,
         default: false
     },
-    isBlocked: {
-        type: Boolean,
-        default: false
+    profession: {
+        type: String
+    },
+    otp: {
+        type: String
     }
 }, {
     timestamps: true
