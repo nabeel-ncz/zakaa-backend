@@ -15,7 +15,7 @@ export const getUserController = (dependencies: IDependencies) => {
                 throw new Error("User doesn't exist!");
             }
 
-            const result = findUserByIdUseCase(dependencies)
+            const result = await findUserByIdUseCase(dependencies)
                 .execute(req.user._id);
 
             if(!result){
