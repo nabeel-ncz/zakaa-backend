@@ -13,6 +13,8 @@ export const updatePassword = async (
             email: data.email
         }, {
             password: data.password
+        }, {
+            new: true
         });
 
         if (!updatedUser) {
