@@ -4,7 +4,7 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import { dependencies } from "@/_boot/dependencies";
 import { limiter } from "@/_lib/http/rateLimit";
-import { authRoutes } from "@/infrastructure/routes/authRoutes";
+import { authRoutes } from "@/presentation/routes/authRoutes";
 
 const app: Application = express();
 

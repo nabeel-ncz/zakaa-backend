@@ -13,7 +13,8 @@ export const config = {
     },
     secrets: {
         access_token: envString('ACCESS_TOKEN_SECRET', 'testsecret'),
-        refresh_token: envString('REFRESH_TOKEN_SECRET', 'testsecret')
+        refresh_token: envString('REFRESH_TOKEN_SECRET', 'testsecret'),
+        forgot_password_token: envString('FORGOT_PASSWORD_TOKEN_SECRET', 'testsecret2')
     },
     kafka: {
         broker_urls: envString('KAFKA_BROKER_URLS', 'localhost:29092'),

@@ -3,6 +3,7 @@ import { Request, Response, NextFunction } from "express";
 import { signupValidation } from "@/_lib/http/validation/signupValidation";
 import { hashPassword } from "@/_lib/http/bcrypt";
 import { generateAccessToken, generateRefreshToken } from "@/_lib/http/jwt";
+import { userCreatedProducer } from "@/infrastructure/messages/kafka/producers";
 
 export const signupController = (dependencies: IDependencies) => {
 
@@ -24,6 +25,10 @@ export const signupController = (dependencies: IDependencies) => {
 
             const result = await createUserUseCase(dependencies).execute(value);
 
+            //produce-user-creation-message
+            await userCreatedProducer(result!);
+            //==============================
+
             const accessToken = generateAccessToken({
                 _id: String(result?._id),
                 email: result?.email!,
@@ -39,7 +44,7 @@ export const signupController = (dependencies: IDependencies) => {
             res.cookie("access_token", accessToken, {
                 httpOnly: true
             });
-            
+
             res.cookie("refresh_token", refreshToken, {
                 httpOnly: true
             });
