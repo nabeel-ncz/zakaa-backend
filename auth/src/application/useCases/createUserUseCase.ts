@@ -1,6 +1,5 @@
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { UserEntity } from "@/domain/entities";
-import { generateVerificationOTP } from "@/_lib/utils/otp";
 
 export const createUserUseCase = (dependencies: IDependencies) => {
     const {
@@ -11,7 +10,6 @@ export const createUserUseCase = (dependencies: IDependencies) => {
         execute: async (data: UserEntity) => {
             try {
 
-                data['otp'] = generateVerificationOTP();
                 return await create(data);
                 
             } catch (error: any) {

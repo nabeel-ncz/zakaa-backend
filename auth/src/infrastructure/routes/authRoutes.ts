@@ -9,7 +9,8 @@ export const authRoutes = (dependencies: IDependencies) => {
         signup,
         login,
         findUsername,
-        getUser
+        getUser,
+        getUsernameSuggestions
     } = controllers(dependencies);
 
     const router = Router();
@@ -22,6 +23,9 @@ export const authRoutes = (dependencies: IDependencies) => {
 
     router.route("/login")
         .post(login);
+
+    router.route("/available/username")
+        .get(getUsernameSuggestions);
 
     router.route("/available/username/:username")
         .get(findUsername);
