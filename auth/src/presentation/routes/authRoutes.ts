@@ -39,6 +39,5 @@ export const authRoutes = (dependencies: IDependencies) => {
         .post(sendForgotPasswordMail);
 
 
-
     return router;
 }
