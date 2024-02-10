@@ -9,4 +9,5 @@ export interface IRepositories {
         email: string,
         password: string
     }) => Promise<UserEntity | null>;
+    verify: (email: string) => Promise<UserEntity | null>;
 }

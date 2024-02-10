@@ -4,3 +4,4 @@ export * from "./checkUsernameUseCase";
 export * from "./findUserByIdUseCase";
 export * from "./findUserByEmailUseCase";
 export * from "./updatePasswordUseCase";
+export * from "./verifyAccountUseCase";

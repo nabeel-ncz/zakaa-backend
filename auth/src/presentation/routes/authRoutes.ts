@@ -8,8 +8,9 @@ export const authRoutes = (dependencies: IDependencies) => {
     const {
         signup,
         login,
-        findUsername,
         getUser,
+        verifyAccount,
+        findUsername,
         getUsernameSuggestions,
         sendForgotPasswordMail,
         forgotPassword
@@ -26,12 +27,15 @@ export const authRoutes = (dependencies: IDependencies) => {
     router.route("/login")
         .post(login);
 
+    router.route("/verify")
+        .post(CurrentUser, verifyAccount);
+
     router.route("/available/username")
         .get(getUsernameSuggestions);
 
     router.route("/available/username/:username")
         .get(findUsername);
-        
+
     router.route("/forgot-password")
         .post(forgotPassword);
 
