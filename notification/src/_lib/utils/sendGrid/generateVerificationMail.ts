@@ -3,7 +3,8 @@ import { config } from "@/_boot/config";
 
 sendGridMail.setApiKey(config.sendgrid.api_key);
 
-export const sendVerifyMail = async (
+
+export const generateVerificationMail = async (
     data: {
         email: string,
         otp: string

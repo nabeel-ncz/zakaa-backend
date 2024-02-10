@@ -1,18 +1,14 @@
-import { sendVerifyMail } from "@/_lib/utils/sendGrid/sendVerifyMail";
+import { sendVerificationMail } from "@/infrastructure/services/mail";
 
 export default async (
     data: {
         email: string;
-        otp: string;
     }
 ) => {
 
     try {
 
-        await sendVerifyMail({
-            email: data.email,
-            otp: data.otp
-        });
+        await sendVerificationMail(data.email);
 
         console.log("==========");
         console.log("user-created-consumed mail send");
