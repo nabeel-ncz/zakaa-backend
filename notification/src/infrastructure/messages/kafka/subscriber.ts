@@ -1,14 +1,16 @@
 import { ISubscriber } from "@zakaa/common";
 import {
-    userCreatedConsumer
+    userCreatedConsumer,
+    requestForgotPasswordConsumer
 } from "./consumers";
 
 export interface INotificationSubscriber extends Pick<
-    ISubscriber, 'userCreated'
+    ISubscriber, 'userCreated' | 'requestForgotPassword'
 > { }
 
 export const createSubscriber = (): INotificationSubscriber => {
     return {
-        userCreated: userCreatedConsumer
+        userCreated: userCreatedConsumer,
+        requestForgotPassword: requestForgotPasswordConsumer
     }
 }

@@ -19,6 +19,9 @@ export const config = {
         api_key: envString('SENDGRID_API_KEY', 'testkey'),
         email: envString('SENDGRID_FROM_MAIL', 'testmail')
     },
+    urls: {
+        frontend: envString('FRONT_END_URL', 'http://localhost:3000')
+    },
     kafka: {
         broker_urls: envString('KAFKA_BROKER_URLS', 'localhost:29092'),
         client_id: envString('KAFKA_CLIENT_ID', 'kafka-auth-client')
