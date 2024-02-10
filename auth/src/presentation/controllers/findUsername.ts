@@ -15,15 +15,15 @@ export const findAvailableUsernameController = (dependencies: IDependencies) => 
             const result = await checkUsernameUseCase(dependencies)
                 .execute(username);
 
-            if (result) {
-                return res.status(200).json({
-                    success: true,
-                    data: {},
-                    message: "username is available"
-                });
+            if (!result) {
+                throw new Error("username is not available!");
             }
 
-            throw new Error("username is not available!");
+            res.status(200).json({
+                success: true,
+                data: {},
+                message: "username is available"
+            });
 
         } catch (error) {
             next(error);
