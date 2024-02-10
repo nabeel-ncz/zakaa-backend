@@ -4,8 +4,6 @@ import express, {
     Response,  
     NextFunction
 } from "express";
-import { notificationRoutes } from "@/infrastructure/routes/notificationRoutes";
-import { dependencies } from "@/_boot/dependencies";
 import { ErrorHandler, NotFoundError } from "@zakaa/common";
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
@@ -22,8 +20,6 @@ app.get('/', (req: Request, res: Response) => {
         message: "Notification service ON!"
     })
 });
-
-app.use('/api/notification', notificationRoutes(dependencies));
 
 app.all("*", (req: Request, res: Response, next: NextFunction) => {
     next(new NotFoundError());
