@@ -5,4 +5,8 @@ export interface IRepositories {
     findByEmail: (email: string) => Promise<UserEntity | null>;
     findById: (id: string) => Promise<UserEntity | null>;
     isAvailableUsername: (username: string) => Promise<boolean | null>;
+    updatePassword: (data: {
+        email: string,
+        password: string
+    }) => Promise<UserEntity | null>;
 }
