@@ -15,14 +15,14 @@ export const findEmailController = (dependencies: IDependencies) => {
             const result = await findUserByEmailUseCase(dependencies)
                 .execute(email);
 
-            if (!result) {
+            if (result) {
                 throw new Error("Account already exist with this email");
             }
 
             res.status(200).json({
                 success: true,
                 data: {},
-                message: "Email is available"
+                message: "Email is unique!"
             });
 
         } catch (error) {
