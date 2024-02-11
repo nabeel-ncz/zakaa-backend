@@ -13,7 +13,8 @@ export const authRoutes = (dependencies: IDependencies) => {
         findUsername,
         getUsernameSuggestions,
         sendForgotPasswordMail,
-        forgotPassword
+        forgotPassword,
+        findEmail
     } = controllers(dependencies);
 
     const router = Router();
@@ -29,6 +30,9 @@ export const authRoutes = (dependencies: IDependencies) => {
 
     router.route("/verify")
         .post(CurrentUser, verifyAccount);
+
+    router.route("/available/email/:email")
+        .get(findEmail);
 
     router.route("/available/username")
         .get(getUsernameSuggestions);
