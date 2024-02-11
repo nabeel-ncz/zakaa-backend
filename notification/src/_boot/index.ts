@@ -1,21 +1,21 @@
 import server from "@/_boot/server";
 import app from "@/presentation/application";
-// import { startConsumer, stopConsumer } from "@/_boot/consumer";
+import { startConsumer, stopConsumer } from "@/_boot/consumer";
 
 export const main = async () => {
     try {
 
         await server(app);
 
-        // startConsumer()
-        //     .catch((error: any) => {
-        //         console.info(error);
-        //     });
+        startConsumer()
+            .catch((error: any) => {
+                console.info(error);
+            });
 
-        // process.on('SIGTERM', async () => {
-        //     console.info("SIGTERM received")
-        //     stopConsumer();
-        // })
+        process.on('SIGTERM', async () => {
+            console.info("SIGTERM received")
+            stopConsumer();
+        })
 
     } catch (error: any) {
         console.log(`Oops!`, error?.message);
