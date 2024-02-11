@@ -5,16 +5,10 @@ export const config = {
         host: envString('HOST', 'localhost'),
         port: envNumber('PORT', 3003)
     },
-    // mongo: {
-    //     database: envString('DB_NAME', 'zakaa'),
-    //     host: envString('DB_HOST', ''),
-    //     username: envString('DB_USERNAME', 'mongo_username'),
-    //     password: envString('DB_PASSWORD', 'mongo_password')
-    // },
-    // secrets: {
-    //     access_token: envString('ACCESS_TOKEN_SECRET', 'testsecret'),
-    //     refresh_token: envString('REFRESH_TOKEN_SECRET', 'testsecret')
-    // },
+    secrets: {
+        access_token: envString('ACCESS_TOKEN_SECRET', 'testsecret'),
+        refresh_token: envString('REFRESH_TOKEN_SECRET', 'testsecret')
+    },
     sendgrid: {
         api_key: envString('SENDGRID_API_KEY', 'testkey'),
         email: envString('SENDGRID_FROM_MAIL', 'testmail')
