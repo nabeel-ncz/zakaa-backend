@@ -12,14 +12,11 @@ export const getUsernameSuggestionsController = (dependencies: IDependencies) =>
 
         try {
 
-            const body: {
-                firstName: string,
-                lastName: string
-            } = req.body;
+            const firstName: string = String(req.query?.f);
+            const lastName: string = String(req.query?.l);
 
             const suggestions = generateUsernameSuggestions(
-                body.firstName,
-                body.lastName
+                firstName, lastName
             );
 
             const available = await getAvailableUsername(
