@@ -18,7 +18,7 @@ app.get('/', (req: Request, res: Response) => {
     })
 });
 
-app.get('/api/notification', notificationRoutes(dependencies));
+app.use('/api/notification', notificationRoutes(dependencies));
 
 app.all("*", (req: Request, res: Response, next: NextFunction) => {
     next(new NotFoundError());
