@@ -27,6 +27,13 @@ setupProxies(app, [
             target: "http://localhost:3002",
             changeOrigin: true,
         }
+    },
+    {
+        url: '/api/notification',
+        proxy: {
+            target: "http://localhost:3003",
+            changeOrigin: true,
+        }
     }
 ]);
 
