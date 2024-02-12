@@ -14,6 +14,7 @@ export const authRoutes = (dependencies: IDependencies) => {
         getUsernameSuggestions,
         sendForgotPasswordMail,
         forgotPassword,
+        resetPassword,
         findEmail,
         logout
     } = controllers(dependencies);
@@ -50,6 +51,8 @@ export const authRoutes = (dependencies: IDependencies) => {
     router.route("/forgot-password/send")
         .post(sendForgotPasswordMail);
 
+    router.route("/reset-password")
+        .post(CurrentUser, resetPassword);
 
     return router;
 }
