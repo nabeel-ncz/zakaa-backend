@@ -11,7 +11,7 @@ export const notificationRoutes = (dependencies: IDependencies) => {
 
     const router = Router();
 
-    router.route("/account/verify")
+    router.route("/email-verification")
         .get(CurrentUser, sendVerificationMail);
 
    
