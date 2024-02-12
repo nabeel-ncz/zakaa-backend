@@ -1,9 +1,9 @@
 import Joi from "joi";
 
 export const loginValidation = Joi.object({
-    username: Joi
+    email: Joi
         .string()
-        .min(4)
+        .email()
         .required(),
 
     password: Joi
