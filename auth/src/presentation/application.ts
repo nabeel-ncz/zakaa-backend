@@ -3,7 +3,7 @@ import { NotFoundError, ErrorHandler } from "@zakaa/common";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import { dependencies } from "@/_boot/dependencies";
-import { limiter } from "@/_lib/http/rateLimit";
+// import { limiter } from "@/_lib/http/rateLimit";
 import { authRoutes } from "@/presentation/routes/authRoutes";
 
 const app: Application = express();
@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(helmet());
-app.use(limiter);
+// app.use(limiter);
 
 app.get('/', (req: Request, res: Response) => {
     res.status(200).json({
