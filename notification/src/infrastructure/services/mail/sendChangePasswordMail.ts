@@ -9,7 +9,7 @@ export const sendChangePasswordMail = async (
 
         await generateForgotPasswordMail({
             email: email,
-            url: `${config.urls.frontend}/change-password?token=${token}`
+            url: `${config.urls.frontend}/auth/change-password?token=${token}`
         });
 
     } catch (error: any) {
