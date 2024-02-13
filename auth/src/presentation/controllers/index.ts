@@ -10,6 +10,7 @@ import { sendForgotPasswordMailController } from "./sendForgotPasswordMail";
 import { verifyAccountController } from "./verifyAccount";
 import { findEmailController } from "./findEmail";
 import { logoutController } from "./logout";
+import { googleAuthController } from "./googleAuth";
 
 export const controllers = (dependencies: IDependencies) => {
     return {
@@ -23,6 +24,7 @@ export const controllers = (dependencies: IDependencies) => {
         sendForgotPasswordMail: sendForgotPasswordMailController(dependencies),
         verifyAccount: verifyAccountController(dependencies),
         findEmail: findEmailController(dependencies),
-        logout: logoutController(dependencies)
+        logout: logoutController(dependencies),
+        googleAuth: googleAuthController(dependencies)
     }
 };
