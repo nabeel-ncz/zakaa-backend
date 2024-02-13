@@ -26,7 +26,7 @@ export const forgotPasswordController = (dependencies: IDependencies) => {
             const result = await updatePasswordUseCase(dependencies)
                 .execute({ email: decoded.email, password: hash });
 
-            if (result) {
+            if (!result) {
                 throw new Error("Password updation failed!");
             }
 
