@@ -1,6 +1,8 @@
 import express, { Request, Response, NextFunction, Application } from "express";
 import { NotFoundError, ErrorHandler } from "@zakaa/common";
 import cookieParser from "cookie-parser";
+import { userRoutes } from "./routes/userRoutes";
+import { dependencies } from "@/_boot/dependencies";
 
 const app: Application = express();
 
@@ -14,6 +16,8 @@ app.get('/', (req: Request, res: Response) => {
         message: "User service ON!"
     })
 });
+
+app.use('/api/user', userRoutes(dependencies))
 
 app.all("*", (req: Request, res: Response, next: NextFunction) => {
     next(new NotFoundError());
