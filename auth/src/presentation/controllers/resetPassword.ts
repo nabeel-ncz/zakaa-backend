@@ -1,6 +1,6 @@
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { Request, Response, NextFunction } from "express";
-import { comparePassword } from "@/_lib/http/bcrypt";
+import { comparePassword, hashPassword } from "@/_lib/http/bcrypt";
 
 export const resetPasswordController = (dependencies: IDependencies) => {
 
@@ -13,13 +13,13 @@ export const resetPasswordController = (dependencies: IDependencies) => {
         try {
 
             const user = req.user;
-            
+
             const body: {
                 currentPassword: string,
                 newPassword: string
             } = req.body
 
-            if(!user){
+            if (!user) {
                 throw new Error("UnAuthorized!");
             }
 
@@ -36,10 +36,12 @@ export const resetPasswordController = (dependencies: IDependencies) => {
                 throw new Error("Password doesn't match, Try again!");
             }
 
-            const updated = await updatePasswordUseCase(dependencies)
-                .execute({ email: user?.email!, password: body.newPassword });
+            const hash = await hashPassword(body.newPassword);
 
-            if (!updated){
+            const updated = await updatePasswordUseCase(dependencies)
+                .execute({ email: user?.email!, password: hash });
+
+            if (!updated) {
                 throw new Error("There is something went wrong in the updation");
             }
 
