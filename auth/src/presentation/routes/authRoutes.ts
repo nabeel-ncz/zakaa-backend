@@ -16,7 +16,8 @@ export const authRoutes = (dependencies: IDependencies) => {
         forgotPassword,
         resetPassword,
         findEmail,
-        logout
+        logout,
+        googleAuth
     } = controllers(dependencies);
 
     const router = Router();
@@ -32,6 +33,9 @@ export const authRoutes = (dependencies: IDependencies) => {
 
     router.route("/logout")
         .delete(logout);
+
+    router.route("/google")
+        .post(googleAuth);
 
     router.route("/verify")
         .post(CurrentUser, verifyAccount);
