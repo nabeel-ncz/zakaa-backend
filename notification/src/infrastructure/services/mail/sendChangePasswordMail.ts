@@ -1,5 +1,5 @@
 import { config } from "@/_boot/config";
-import { generateForgotPasswordMail } from "@/_lib/utils/sendGrid/generateForgotPasswordMail";
+import { generateForgotPasswordMail } from "@/_lib/utils/sendGrid";
 
 export const sendChangePasswordMail = async (
     email: string,
