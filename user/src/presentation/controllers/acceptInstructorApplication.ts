@@ -6,18 +6,18 @@ import { Request, Response, NextFunction } from "express";
 export const acceptInstructorApplicationController = (dependencies: IDependencies) => {
 
     const {
-        // useCases: { acceptInstructrorApplicationUsecase }
+        useCases: { acceptInstructrorApplicationUsecase }
     } = dependencies;
 
     return async (req: Request, res: Response, next: NextFunction) => {
 
         try {
 
-            const { email } = req.body;
+            const { id, email } = req.body;
             const token = tokenToBecomeInstructor({ email });
 
-            // await acceptInstructrorApplicationUsecase(dependencies)
-            //     .execute(email);
+            await acceptInstructrorApplicationUsecase(dependencies)
+                .execute(id);
 
             //produce-message-to-notification
             await instructorApplicationAcceptedProducer({

@@ -1,1 +1,5 @@
-export * from "./instructorApplicationAcceptedProducer";
+import instructorApplicationAcceptedProducer from "./instructorApplicationAcceptedProducer";
+
+export {
+    instructorApplicationAcceptedProducer
+}

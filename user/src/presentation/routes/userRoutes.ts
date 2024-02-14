@@ -21,7 +21,7 @@ export const userRoutes = (dependencies: IDependencies) => {
         .get(CurrentUser, requireAdmin, getInstructorApplications);
 
     router.route("/admin/instructor/applications/accept")
-        .post(CurrentUser, requireAdmin, acceptInstructorApplication);
+        .put(CurrentUser, requireAdmin, acceptInstructorApplication);
 
     return router;
 }
