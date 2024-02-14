@@ -3,10 +3,15 @@ import { sendVerificationMail } from "@/infrastructure/services/mail";
 export default async (
     data: {
         email: string;
+        isVerified: boolean;
     }
 ) => {
 
     try {
+
+        if(data?.isVerified){
+            return;
+        }
 
         await sendVerificationMail(data.email);
 
