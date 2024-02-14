@@ -9,10 +9,14 @@ export const userRoutes = (dependencies: IDependencies) => {
     const {
         applyToTeach,
         getInstructorApplications,
-        acceptInstructorApplication
+        acceptInstructorApplication,
+        verifyInstructorApplication
     } = controllers(dependencies);
 
     const router = Router();
+
+    router.route("/instructor/verify")
+        .get(RequireAuth, verifyInstructorApplication);
 
     router.route("/instructor/apply")
         .post(RequireAuth, CurrentUser, applyToTeach);
@@ -21,7 +25,7 @@ export const userRoutes = (dependencies: IDependencies) => {
         .get(CurrentUser, requireAdmin, getInstructorApplications);
 
     router.route("/admin/instructor/applications/accept")
-        .post(CurrentUser, requireAdmin, acceptInstructorApplication);
+        .put(CurrentUser, requireAdmin, acceptInstructorApplication);
 
     return router;
 }
