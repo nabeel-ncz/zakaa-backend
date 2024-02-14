@@ -4,5 +4,5 @@ export interface InstructorApplicationEntity {
     profileDescription:string;
     linkedIn?: string;
     github?: string;
-    accepted: boolean;
+    accepted?: boolean;
 }
