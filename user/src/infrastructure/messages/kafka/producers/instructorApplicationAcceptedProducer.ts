@@ -1,5 +1,8 @@
 import { producer } from "../index";
-import { NOTIFICATION_SERVICE_TOPIC } from "@zakaa/common";
+import {
+    NOTIFICATION_SERVICE_TOPIC,
+    INSTRUCTOR_APPLICATION_ACCEPTED_MESSAGE
+} from "@zakaa/common";
 
 export default async (
     data: {
@@ -14,7 +17,7 @@ export default async (
         const message = {
             topic: NOTIFICATION_SERVICE_TOPIC,
             messages: [{
-                key: "instructorApplicationAccepted",
+                key: INSTRUCTOR_APPLICATION_ACCEPTED_MESSAGE,
                 value: JSON.stringify(data)
             }]
         }
