@@ -13,7 +13,7 @@ export const acceptInstructorApplication = async (
         })
 
         if (!application) {
-            throw new Error("repo failed!");
+            throw new Error("application accept failed!");
         }
 
         return application;

@@ -1,3 +1,3 @@
-export * from "./create";
-export * from "./findAll";
-export * from "./accept";
+export * from "./createInstructorApplication";
+export * from "./findAllInstructorApplication";
+export * from "./acceptInstructorApplication";

@@ -3,7 +3,7 @@ import { envString, envNumber } from "@/_boot/environment";
 export const config = {
     http: {
         host: envString('HOST', 'localhost'),
-        port: envNumber('PORT', 3003)
+        port: envNumber('PORT', 3002)
     },
     mongo: {
         database: envString('DB_NAME', 'zakaa_user'),
