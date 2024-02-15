@@ -1,6 +1,6 @@
 import { consumer } from "@/infrastructure/messages/kafka";
 import { createSubscriber, IUserSubscriber } from "@/infrastructure/messages/kafka/subscriber";
-import { AUTH_SERVICE_TOPIC } from "@zakaa/common";
+import { USER_SERVICE_TOPIC } from "@zakaa/common";
 
 export const startConsumer = async () => {
     try {
@@ -8,7 +8,7 @@ export const startConsumer = async () => {
         await consumer.connect();
 
         await consumer.subscribe({
-            topic: AUTH_SERVICE_TOPIC,
+            topic: USER_SERVICE_TOPIC,
             fromBeginning: true
         });
 
