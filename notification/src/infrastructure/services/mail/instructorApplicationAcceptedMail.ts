@@ -9,7 +9,7 @@ export const instructorApplicationAcceptedMail = async (
 
         await generateInstructorVerifyMail({
             email: email,
-            url: `${config.urls.frontend}/auth/verify-instructor?token=${token}`
+            url: `${config.urls.frontend}/verify-instructor?token=${token}`
         });
 
     } catch (error: any) {
