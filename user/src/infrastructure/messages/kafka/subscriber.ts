@@ -1,14 +1,16 @@
 import { ISubscriber } from "@zakaa/common";
 import {
-    userCreatedConsumer
+    userCreatedConsumer,
+    userVerifiedConsumer
 } from "./consumers";
 
 export interface IUserSubscriber extends Pick<
-    ISubscriber, 'userCreated'
+    ISubscriber, 'userCreated' | 'userVerified'
 > { }
 
 export const createSubscriber = (): IUserSubscriber => {
     return {
-        userCreated: userCreatedConsumer
+        userCreated: userCreatedConsumer,
+        userVerified: userVerifiedConsumer
     }
 }
