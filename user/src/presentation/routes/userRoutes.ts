@@ -16,10 +16,10 @@ export const userRoutes = (dependencies: IDependencies) => {
     const router = Router();
 
     router.route("/instructor/verify")
-        .get(RequireAuth, verifyInstructorApplication);
+        .get(CurrentUser, RequireAuth, verifyInstructorApplication);
 
     router.route("/instructor/apply")
-        .post(RequireAuth, CurrentUser, applyToTeach);
+        .post(CurrentUser, RequireAuth, applyToTeach);
 
     router.route("/admin/instructor/applications")
         .get(CurrentUser, requireAdmin, getInstructorApplications);
