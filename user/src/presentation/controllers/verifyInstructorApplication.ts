@@ -1,5 +1,6 @@
 import { verifyTokenToBecomeInstructor } from "@/_lib/utils/other";
 import { IDependencies } from "@/application/interfaces/IDependencies";
+import { instructorVerifiedProudcer } from "@/infrastructure/messages/kafka/producers";
 import { Request, Response, NextFunction } from "express";
 
 export const verifyInstructorApplicationController = (dependencies: IDependencies) => {
@@ -22,6 +23,17 @@ export const verifyInstructorApplicationController = (dependencies: IDependencie
 
             const result = await updateUserRoleUseCase(dependencies)
                 .execute(verify.email, "instructor");
+
+            if(!result){
+                throw new Error("There is a issue with role updation");
+            }
+
+            //produce-message-to-auth-service==============
+            await instructorVerifiedProudcer({
+                email: result.email,
+                role: result.role
+            });
+            //==============================================
 
             res.status(200).json({
                 success: true,
