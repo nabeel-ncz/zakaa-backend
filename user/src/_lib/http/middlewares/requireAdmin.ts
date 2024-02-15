@@ -5,17 +5,17 @@ import { findUserById } from "@/infrastructure/database/mongo/repositories";
 export const requireAdmin = async (req: Request, res: Response, next: NextFunction) => {
     
     if (!req.user) {
-        throw new UnAuthorizedError();
+        return next(new UnAuthorizedError());
     }
-    
+        
     const user = await findUserById(req.user._id);
     
     if (!user) {
-        throw new UnAuthorizedError();
+        return next(new UnAuthorizedError());
     }
 
     if (user.role !== "admin") {
-        throw new RequireAdminError();
+        return next(new RequireAdminError());
     }
     
     next();
