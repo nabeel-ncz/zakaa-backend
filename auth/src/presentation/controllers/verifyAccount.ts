@@ -1,5 +1,6 @@
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { Request, Response, NextFunction } from "express";
+import { userVerifiedProducer } from "@/infrastructure/messages/kafka/producers";
 
 export const verifyAccountController = (dependencies: IDependencies) => {
 
@@ -13,11 +14,11 @@ export const verifyAccountController = (dependencies: IDependencies) => {
 
             const { otp } = req.body;
 
-            if(!otp || otp.length < 6){
+            if (!otp || otp.length < 6) {
                 throw new Error("OTP is incorrect, Try again!");
             }
 
-            if(!req.user || !req.user?.email){
+            if (!req.user || !req.user?.email) {
                 throw new Error("User information required!");
             }
 
@@ -26,6 +27,17 @@ export const verifyAccountController = (dependencies: IDependencies) => {
                     email: req.user.email,
                     otp: otp
                 });
+
+            if (!updated) {
+                throw new Error("Account verification failed!");
+            }
+
+            //produce-message user-verified
+            await userVerifiedProducer({ 
+                email: updated.email,
+                isVerified: updated.isVerified 
+            });
+            //=============================
 
             res.status(200).json({
                 success: true,
