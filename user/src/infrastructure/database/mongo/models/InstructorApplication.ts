@@ -12,6 +12,10 @@ const instructorApplicationSchema = new Schema({
         required: true,
         unique: true
     },
+    profession: {
+        type: String,
+        required: true,
+    },
     profileDescription: {
         type: String,
         required: true
