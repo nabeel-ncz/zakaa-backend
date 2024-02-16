@@ -1,29 +1,28 @@
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { Request, Response, NextFunction } from "express";
 
-export const createCourseController = (dependencies: IDependencies) => {
+export const getCourseByIdController = (dependencies: IDependencies) => {
 
     const {
-        useCases: { createCourseUseCase }
+        useCases: { getCourseByIdUseCase }
     } = dependencies;
 
     return async (req: Request, res: Response, next: NextFunction) => {
 
         try {
 
-            const data = req.body;
+            const id = req.params?.id;
 
-            const result = await createCourseUseCase(dependencies)
-                .execute(data);
+            const result = await getCourseByIdUseCase(dependencies).execute(id);
 
             if(!result){
-                throw new Error("Course creation failed!");
+                throw new Error("Course doesn't exist!");
             }
 
             res.status(200).json({
                 success: true,
                 data: result,
-                message: "Course created!"
+                message: "Course retrieved!"
             });
 
         } catch (error) {
