@@ -6,8 +6,8 @@ export interface IRepositories {
     getAllCourses: (data: {
         page?: number;
         limit?: number;
-        category?:number;
-        search?:number;
+        category?: string;
+        search?: string;
     }) => Promise<CourseEntity[] | null>;
     getCourseById: (id: string) => Promise<CourseEntity | null>;
 }
