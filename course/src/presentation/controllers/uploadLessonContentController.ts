@@ -10,16 +10,17 @@ export const uploadLessonContentController = (dependencies: IDependencies) => {
         try {
 
             const rawFiles: any = req.files;
-            
+
             const thumbnail = await resizeCourseThumbnail(rawFiles.lessonThumbnail[0]);
             const lessonVideo = await createVideoVersions(rawFiles.lessonVideo[0]);
-            
+            const attachment = rawFiles?.lessonAttachment ? rawFiles?.lessonAttachment[0]?.filename : null;
+
             res.status(200).json({
                 success: true,
                 data: {
                     thumbnail,
                     lessonVideo,
-                    attachment: rawFiles?.lessonAttachment[0]?.filename
+                    attachment: attachment
                 },
                 message: "Lesson content uploaded!"
             });
