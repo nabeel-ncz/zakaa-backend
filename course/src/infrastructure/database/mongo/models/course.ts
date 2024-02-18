@@ -15,8 +15,9 @@ const lessonSchema = new Schema({
         required: true
     },
     video: {
-        type: String,
-        required: true
+        high: String,
+        medium: String,
+        low: String
     },
     attachments: {
         title: String,
@@ -38,8 +39,9 @@ const trialSchema = new Schema({
         required: true
     },
     video: {
-        type: String,
-        required: true
+        high: String,
+        medium: String,
+        low: String
     }
 });
 
@@ -49,6 +51,10 @@ const courseSchema = new Schema({
         required: true
     },
     description: {
+        type: String,
+        required: true
+    },
+    thumbnail: {
         type: String,
         required: true
     },
@@ -63,7 +69,7 @@ const courseSchema = new Schema({
     },
     language: {
         type: String,
-        required: true
+        default: "english"
     },
     lessons: [lessonSchema],
     trial: trialSchema,
