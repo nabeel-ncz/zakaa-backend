@@ -12,7 +12,10 @@ export const uploadCourseContentController = (dependencies: IDependencies) => {
             const rawFiles: any = req.files;
             
             const thumbnail = await resizeCourseThumbnail(rawFiles.courseThumbnail[0]);
-            const trialVideo = await createVideoVersions(rawFiles.trialVideo[0]);
+            let trialVideo;
+            if(rawFiles?.trialVideo){
+                trialVideo = await createVideoVersions(rawFiles.trialVideo[0]);
+            }
             
             res.status(200).json({
                 success: true,

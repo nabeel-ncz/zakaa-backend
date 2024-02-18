@@ -19,9 +19,9 @@ export const createVideoVersions = (inputVideo: any) => {
             if (++conversionsCompleted === totalConversions) {
                 console.log('All video versions generated successfully');
                 resolve({
-                    high: path.join(__dirname, "..", "..", "public", "videos", `${inputVideo.filename.split('.')[0]}-high.mp4`),
-                    medium: path.join(__dirname, "..", "..", "public", "videos", `${inputVideo.filename.split('.')[0]}-medium.mp4`),
-                    low: path.join(__dirname, "..", "..", "public", "videos", `${inputVideo.filename.split('.')[0]}-low.mp4`)
+                    high: `${inputVideo.filename.split('.')[0]}-high.mp4`,
+                    medium: `${inputVideo.filename.split('.')[0]}-medium.mp4`,
+                    low: `${inputVideo.filename.split('.')[0]}-low.mp4`
                 });
             }
         };
