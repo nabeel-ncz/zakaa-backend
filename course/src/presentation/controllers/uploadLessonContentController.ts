@@ -3,7 +3,7 @@ import { resizeCourseThumbnail } from "@/_lib/sharp";
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { Request, Response, NextFunction } from "express";
 
-export const uploadCourseContentController = (dependencies: IDependencies) => {
+export const uploadLessonContentController = (dependencies: IDependencies) => {
 
     return async (req: Request, res: Response, next: NextFunction) => {
 
@@ -11,16 +11,17 @@ export const uploadCourseContentController = (dependencies: IDependencies) => {
 
             const rawFiles: any = req.files;
             
-            const thumbnail = await resizeCourseThumbnail(rawFiles.courseThumbnail[0]);
-            const trialVideo = await createVideoVersions(rawFiles.trialVideo[0]);
+            const thumbnail = await resizeCourseThumbnail(rawFiles.lessonThumbnail[0]);
+            const lessonVideo = await createVideoVersions(rawFiles.lessonVideo[0]);
             
             res.status(200).json({
                 success: true,
                 data: {
                     thumbnail,
-                    trialVideo
+                    lessonVideo,
+                    attachment: rawFiles?.lessonAttachment[0]?.filename
                 },
-                message: "Courses content uploaded!"
+                message: "Lesson content uploaded!"
             });
 
         } catch (error) {

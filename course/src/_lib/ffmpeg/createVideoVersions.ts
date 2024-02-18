@@ -18,7 +18,11 @@ export const createVideoVersions = (inputVideo: any) => {
         const onComplete = () => {
             if (++conversionsCompleted === totalConversions) {
                 console.log('All video versions generated successfully');
-                resolve('All video versions generated successfully');
+                resolve({
+                    high: path.join(__dirname, "..", "..", "public", "videos", `${inputVideo.filename.split('.')[0]}-high.mp4`),
+                    medium: path.join(__dirname, "..", "..", "public", "videos", `${inputVideo.filename.split('.')[0]}-medium.mp4`),
+                    low: path.join(__dirname, "..", "..", "public", "videos", `${inputVideo.filename.split('.')[0]}-low.mp4`)
+                });
             }
         };
 

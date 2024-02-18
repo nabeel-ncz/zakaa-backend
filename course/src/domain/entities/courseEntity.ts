@@ -4,7 +4,11 @@ interface Lesson {
     title: string;
     description: string;
     thumbnail: string;
-    video: string;
+    video: {
+        high: string;
+        medium: string;
+        low: string;
+    };
     attachments?: {
         title: string;
         url: string;
@@ -15,7 +19,11 @@ interface Trial {
     title: string;
     description: string;
     thumbnail: string;
-    video: string;
+    video: {
+        high: string;
+        medium: string;
+        low: string;
+    }
 }
 
 enum PricingType {
@@ -32,9 +40,10 @@ export interface CourseEntity {
     _id?: ObjectId;
     title: string;
     description: string;
+    thumbnail: string;
     instructorRef: ObjectId;
     categoryRef: ObjectId;
-    language: string;
+    language?: string;
     lessons: [Lesson]
     trial?: Trial;
     createdAt?: Date;

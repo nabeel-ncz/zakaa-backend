@@ -4,6 +4,7 @@ import { updateCourseController } from "./updateCourseController";
 import { getAllCoursesController } from "./getAllCoursesController";
 import { getCourseByIdController } from "./getCourseByIdController";
 import { uploadCourseContentController } from "./uploadCourseContentController";
+import { uploadLessonContentController } from "./uploadLessonContentController";
 
 export const controllers = (dependencies: IDependencies) => {
     return {
@@ -13,6 +14,6 @@ export const controllers = (dependencies: IDependencies) => {
         getCourse: getCourseByIdController(dependencies),
         deleteCourse: () => {},
         uploadCourseContent: uploadCourseContentController(dependencies),
-        uploadLessonContent: () => {}
+        uploadLessonContent: uploadLessonContentController(dependencies)
     }
 };

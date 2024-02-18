@@ -37,11 +37,12 @@ export const courseRoutes = (dependencies: IDependencies) => {
 
     router.route("/lesson/upload")
         .post(
-            // uploadSingleImage("lessonThumbnail"),
-            // uploadSingleVideo("lessonVideo"),
-            // uploadSingleFile("lessonAttachment"),
+            uploadMultipleFiles(
+                ['lessonThumbnail', 'lessonVideo', 'lessonAttachment'],
+                ['.jpg', '.jpeg', '.png', '.mp4', '.mkv', '.webm', '.mpeg', '.pdf', '.docx']
+            ),
             uploadLessonContent
-        )
+        );
 
     return router;
 }
