@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { controllers } from "@/presentation/controllers";
 import { IDependencies } from "@/application/interfaces/IDependencies";
+import { uploadMultipleFiles } from "@/_lib/multer";
 
 export const courseRoutes = (dependencies: IDependencies) => {
 
@@ -9,7 +10,9 @@ export const courseRoutes = (dependencies: IDependencies) => {
         updateCourse,
         getAllCourse,
         getCourse,
-        deleteCourse
+        deleteCourse,
+        uploadCourseContent,
+        uploadLessonContent
     } = controllers(dependencies);
 
     const router = Router();
@@ -22,6 +25,23 @@ export const courseRoutes = (dependencies: IDependencies) => {
     router.route("/:id")
         .get(getCourse)
         .delete(deleteCourse);
+
+    router.route("/content/upload")
+        .post(
+            uploadMultipleFiles(
+                ['courseThumbnail', 'trialVideo'],
+                ['.jpg', '.jpeg', '.png', '.mp4', '.mkv', '.webm', '.mpeg']
+            ),
+            uploadCourseContent
+        );
+
+    router.route("/lesson/upload")
+        .post(
+            // uploadSingleImage("lessonThumbnail"),
+            // uploadSingleVideo("lessonVideo"),
+            // uploadSingleFile("lessonAttachment"),
+            uploadLessonContent
+        )
 
     return router;
 }
