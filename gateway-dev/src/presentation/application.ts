@@ -34,6 +34,13 @@ setupProxies(app, [
             target: "http://localhost:3003",
             changeOrigin: true,
         }
+    },
+    {
+        url: '/api/course',
+        proxy: {
+            target: "http://localhost:3004",
+            changeOrigin: true,
+        }
     }
 ]);
 
