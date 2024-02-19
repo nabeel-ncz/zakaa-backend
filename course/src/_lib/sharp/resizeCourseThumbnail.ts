@@ -5,7 +5,7 @@ export const resizeCourseThumbnail = async (file: any) => {
     try {
         
         await sharp(file.path)
-            .resize(400, 400, { position: 'centre' })
+            .resize(1280, 720, { position: 'centre' })
             .toFormat('png')
             .toFile(path.join(__dirname, "..", "..", "public", "images", file.filename));
 
