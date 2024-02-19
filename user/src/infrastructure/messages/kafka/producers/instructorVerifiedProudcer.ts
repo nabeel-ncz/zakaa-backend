@@ -1,6 +1,7 @@
 import { producer } from "../index";
 import {
     AUTH_SERVICE_TOPIC,
+    COURSE_SERVICE_TOPIC,
     INSTRUCTOR_VEIRIFIED_MESSAGE
 } from "@zakaa/common";
 
@@ -12,17 +13,27 @@ export default async (
 ) => {
 
     try {
+
         await producer.connect();
 
-        const message = {
-            topic: AUTH_SERVICE_TOPIC,
-            messages: [{
-                key: INSTRUCTOR_VEIRIFIED_MESSAGE,
-                value: JSON.stringify(data)
-            }]
-        }
+        const messages = [
+            {
+                topic: AUTH_SERVICE_TOPIC,
+                messages: [{
+                    key: INSTRUCTOR_VEIRIFIED_MESSAGE,
+                    value: JSON.stringify(data)
+                }]
+            },
+            {
+                topic: COURSE_SERVICE_TOPIC,
+                messages: [{
+                    key: INSTRUCTOR_VEIRIFIED_MESSAGE,
+                    value: JSON.stringify(data)
+                }]
+            }
+        ]
 
-        await producer.send(message);
+        await producer.sendBatch({ topicMessages: messages });
 
     } catch (error: any) {
         console.error('kafka produce error : ', error?.message);
