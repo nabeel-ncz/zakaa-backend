@@ -10,4 +10,8 @@ export interface IRepositories {
         search?: string;
     }) => Promise<CourseEntity[] | null>;
     getCourseById: (id: string) => Promise<CourseEntity | null>;
+    getCoursesByInstructorId: (id: string) => Promise<CourseEntity[] | null>;
 }
+
+
+
