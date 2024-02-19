@@ -27,16 +27,13 @@ const lessonSchema = new Schema({
 
 const trialSchema = new Schema({
     title: {
-        type: String,
-        required: true
+        type: String
     },
     description: {
-        type: String,
-        required: true
+        type: String
     },
     thumbnail: {
-        type: String,
-        required: true
+        type: String
     },
     video: {
         high: String,
