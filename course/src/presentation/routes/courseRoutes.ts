@@ -3,7 +3,7 @@ import { controllers } from "@/presentation/controllers";
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { uploadMultipleFiles } from "@/_lib/multer";
 
-export const courseRoutes = (dependencies: IDependencies) => {
+export const courseRoutes = (dependencies: IDependencies, router: Router) => {
 
     const {
         createCourse,
@@ -14,8 +14,6 @@ export const courseRoutes = (dependencies: IDependencies) => {
         uploadCourseContent,
         uploadLessonContent
     } = controllers(dependencies);
-
-    const router = Router();
 
     router.route("/")
         .get(getAllCourse)
