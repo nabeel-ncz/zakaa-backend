@@ -3,7 +3,7 @@ import { NotFoundError, ErrorHandler } from "@zakaa/common";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import { dependencies } from "@/_boot/dependencies";
-import { courseRoutes } from "@/presentation/routes/courseRoutes";
+import { routes } from "@/presentation/routes";
 import path from "path";
 
 const app: Application = express();
@@ -21,7 +21,7 @@ app.get('/', (req: Request, res: Response) => {
     })
 });
 
-app.use("/api/course", courseRoutes(dependencies));
+app.use("/api/course", routes(dependencies));
 
 app.all("*", (req: Request, res: Response, next: NextFunction) => {
     next(new NotFoundError());
