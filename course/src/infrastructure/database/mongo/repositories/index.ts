@@ -4,3 +4,4 @@ export * from "./getAllCourses";
 export * from "./getCourseById";
 export * from "./createUser";
 export * from "./verifyUser";
+export * from "./updateRole";
