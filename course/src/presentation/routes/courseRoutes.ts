@@ -14,7 +14,8 @@ export const courseRoutes = (dependencies: IDependencies, router: Router) => {
         getCourse,
         deleteCourse,
         uploadCourseContent,
-        uploadLessonContent
+        uploadLessonContent,
+        getInstructorCourses
     } = controllers(dependencies);
 
     router.route("/")
@@ -26,7 +27,7 @@ export const courseRoutes = (dependencies: IDependencies, router: Router) => {
         .get(getAllCourse);
 
     router.route("/instructor/:instructorId")
-        .get();
+        .get(CurrentUser, requireInstructor, getInstructorCourses);
 
     router.route("/:id")
         .get(CurrentUser, RequireAuth, getCourse)
@@ -38,7 +39,7 @@ export const courseRoutes = (dependencies: IDependencies, router: Router) => {
 
     router.route("/content/upload")
         .post(
-            CurrentUser, 
+            CurrentUser,
             requireInstructor,
             uploadMultipleFiles(
                 ['courseThumbnail', 'trialVideo'],
@@ -49,7 +50,7 @@ export const courseRoutes = (dependencies: IDependencies, router: Router) => {
 
     router.route("/lesson/upload")
         .post(
-            CurrentUser, 
+            CurrentUser,
             requireInstructor,
             uploadMultipleFiles(
                 ['lessonThumbnail', 'lessonVideo', 'lessonAttachment'],
