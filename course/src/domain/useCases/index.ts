@@ -3,3 +3,7 @@ export * from "./IUpdateCourseUseCase";
 export * from "./IGetAllCoursesUseCase";
 export * from "./IGetCourseByIdUseCase";
 export * from "./IGetCoursesByInstructorIdUseCase";
+export * from "./ICreateAssessmentUseCase";
+export * from "./IUpdateAssessmentUseCase";
+export * from "./IGetAllAssessmentsUseCase";
+export * from "./IGetAssessmentsByInstructorIdUseCase";

@@ -7,3 +7,7 @@ export * from "./verifyUser";
 export * from "./updateRole";
 export * from "./findUserById";
 export * from "./getCoursesByInstructorId";
+export * from "./createAssessment";
+export * from "./updateAssessment";
+export * from "./getAssessmentsByInstructorId";
+export * from "./getAllAssessments";
