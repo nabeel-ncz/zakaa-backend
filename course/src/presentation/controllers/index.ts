@@ -10,6 +10,10 @@ import { createAssessmentController } from "./createAssessmentController";
 import { updateAssessmentController } from "./updateAssessmentController";
 import { getAllAssessmentsController } from "./getAllAssessmentsController";
 import { getAssessmentsByInstructorIdController } from "./getAssessmentsByInstructorIdController";
+import { getAllCategoriesController } from "./getAllCategoriesController";
+import { getAvailableCategoriesController } from "./getAvailableCategoriesController";
+import { createCategoryController } from "./createCategoryController";
+import { updateCategoryController } from "./updateCategoryController";
 
 export const controllers = (dependencies: IDependencies) => {
     return {
@@ -24,6 +28,10 @@ export const controllers = (dependencies: IDependencies) => {
         createAssessment: createAssessmentController(dependencies),
         updateAssessment: updateAssessmentController(dependencies),
         getAllAssessments: getAllAssessmentsController(dependencies),
-        getAssessmentsByInstructorId: getAssessmentsByInstructorIdController(dependencies)
+        getAssessmentsByInstructorId: getAssessmentsByInstructorIdController(dependencies),
+        getAllCategories: getAllCategoriesController(dependencies),
+        getAvailableCategories: getAvailableCategoriesController(dependencies),
+        createCategory: createCategoryController(dependencies),
+        updateCategory: updateCategoryController(dependencies)
     }
 };

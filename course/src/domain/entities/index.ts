@@ -1,3 +1,4 @@
 export * from "./courseEntity";
-export * from "./useEntity";
+export * from "./userEntity";
 export * from "./assessmentEntity"
+export * from "./categoryEntity";

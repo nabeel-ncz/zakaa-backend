@@ -11,3 +11,7 @@ export * from "./createAssessment";
 export * from "./updateAssessment";
 export * from "./getAssessmentsByInstructorId";
 export * from "./getAllAssessments";
+export * from "./getAllCategories";
+export * from "./getAvailableCategories";
+export * from "./createCategory";
+export * from "./updateCategory";
