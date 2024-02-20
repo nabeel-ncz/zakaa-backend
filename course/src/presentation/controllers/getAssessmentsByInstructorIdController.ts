@@ -4,7 +4,7 @@ import { Request, Response, NextFunction } from "express";
 export const getAssessmentsByInstructorIdController = (dependencies: IDependencies) => {
 
     const {
-        useCases: { getAssessmentsByInstructorId }
+        useCases: { getAssessmentsByInstructorIdUseCase }
     } = dependencies;
 
     return async (req: Request, res: Response, next: NextFunction) => {
@@ -13,7 +13,7 @@ export const getAssessmentsByInstructorIdController = (dependencies: IDependenci
 
             const id = req.params.instructorId;
 
-            const result = await getAssessmentsByInstructorId(dependencies)
+            const result = await getAssessmentsByInstructorIdUseCase(dependencies)
                 .execute(id);
 
             if(!result){

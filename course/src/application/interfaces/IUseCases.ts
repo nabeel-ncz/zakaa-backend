@@ -24,7 +24,7 @@ export interface IUseCases {
     createAssessmentUseCase: (dependencies: IDependencies) => ICreateAssessmentUseCase;
     updateAssessmentUseCase: (dependencies: IDependencies) => IUpdateAssessmentUseCase;
     getAllAssessmentsUseCase: (dependencies: IDependencies) => IGetAllAssessmentsUseCase;
-    getAssessmentsByInstructorId: (dependencies: IDependencies) => IGetAssessmentsByInstructorIdUseCase;
+    getAssessmentsByInstructorIdUseCase: (dependencies: IDependencies) => IGetAssessmentsByInstructorIdUseCase;
     getAllCategoriesUseCase: (dependencies: IDependencies) => IGetAllCategoriesUseCase;
     getAvailableCategoriesUseCase: (dependencies: IDependencies) => IGetAvailableCategoriesUseCase;
     createCategoryUseCase: (dependencies: IDependencies) => ICreateCategoryUseCase;
