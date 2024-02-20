@@ -1,5 +1,5 @@
-import { CourseEntity } from "../entities";
+import { AssessmentEntity } from "../entities";
 
 export interface ICreateAssessmentUseCase {
-    execute(data: CourseEntity): Promise<CourseEntity | null>;
+    execute(data: AssessmentEntity): Promise<AssessmentEntity | null>;
 }
