@@ -14,6 +14,7 @@ import { getAllCategoriesController } from "./getAllCategoriesController";
 import { getAvailableCategoriesController } from "./getAvailableCategoriesController";
 import { createCategoryController } from "./createCategoryController";
 import { updateCategoryController } from "./updateCategoryController";
+import { streamCourseVideoController } from "./streamCourseVideoController";
 
 export const controllers = (dependencies: IDependencies) => {
     return {
@@ -32,6 +33,7 @@ export const controllers = (dependencies: IDependencies) => {
         getAllCategories: getAllCategoriesController(dependencies),
         getAvailableCategories: getAvailableCategoriesController(dependencies),
         createCategory: createCategoryController(dependencies),
-        updateCategory: updateCategoryController(dependencies)
+        updateCategory: updateCategoryController(dependencies),
+        streamCourseVideo: streamCourseVideoController(dependencies)
     }
 };
