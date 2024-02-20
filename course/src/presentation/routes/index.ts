@@ -24,7 +24,8 @@ export const routes = (dependencies: IDependencies) => {
         createCategory,
         updateCategory,
         getAllCategories,
-        getAvailableCategories
+        getAvailableCategories,
+        streamCourseVideo
     } = controllers(dependencies);
 
     router.route("/")
@@ -83,6 +84,9 @@ export const routes = (dependencies: IDependencies) => {
 
     router.route("/category/available")
         .get(getAvailableCategories);
+
+    router.route("/video/:vid")
+        .get(streamCourseVideo);
 
     return router;
 }
