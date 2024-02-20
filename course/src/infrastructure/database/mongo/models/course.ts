@@ -71,9 +71,15 @@ const courseSchema = new Schema({
     lessons: [lessonSchema],
     trial: trialSchema,
     pricing: {
-        type: String,
-        enum: ["free", "paid"],
-        required: true
+        type: {
+            type: String,
+            enum: ["free", "paid"],
+            default: "free"
+        },
+        amount: {
+            type: Number,
+            default: 0
+        }
     }
 }, {
     timestamps: true

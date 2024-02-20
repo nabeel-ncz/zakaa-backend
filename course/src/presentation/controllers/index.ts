@@ -6,6 +6,14 @@ import { getCourseByIdController } from "./getCourseByIdController";
 import { uploadCourseContentController } from "./uploadCourseContentController";
 import { uploadLessonContentController } from "./uploadLessonContentController";
 import { getInstructorCoursesController } from "./getInstructorCoursesController";
+import { createAssessmentController } from "./createAssessmentController";
+import { updateAssessmentController } from "./updateAssessmentController";
+import { getAllAssessmentsController } from "./getAllAssessmentsController";
+import { getAssessmentsByInstructorIdController } from "./getAssessmentsByInstructorIdController";
+import { getAllCategoriesController } from "./getAllCategoriesController";
+import { getAvailableCategoriesController } from "./getAvailableCategoriesController";
+import { createCategoryController } from "./createCategoryController";
+import { updateCategoryController } from "./updateCategoryController";
 
 export const controllers = (dependencies: IDependencies) => {
     return {
@@ -16,6 +24,14 @@ export const controllers = (dependencies: IDependencies) => {
         deleteCourse: () => {},
         uploadCourseContent: uploadCourseContentController(dependencies),
         uploadLessonContent: uploadLessonContentController(dependencies),
-        getInstructorCourses: getInstructorCoursesController(dependencies)
+        getInstructorCourses: getInstructorCoursesController(dependencies),
+        createAssessment: createAssessmentController(dependencies),
+        updateAssessment: updateAssessmentController(dependencies),
+        getAllAssessments: getAllAssessmentsController(dependencies),
+        getAssessmentsByInstructorId: getAssessmentsByInstructorIdController(dependencies),
+        getAllCategories: getAllCategoriesController(dependencies),
+        getAvailableCategories: getAvailableCategoriesController(dependencies),
+        createCategory: createCategoryController(dependencies),
+        updateCategory: updateCategoryController(dependencies)
     }
 };
