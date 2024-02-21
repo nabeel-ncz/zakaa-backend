@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { uploadMultipleFiles } from "@/_lib/multer";
 import { controllers } from "@/presentation/controllers";
-import { CurrentUser, RequireAuth } from "@zakaa/common";
+import { CurrentUser } from "@zakaa/common";
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { requireInstructor, requireAdmin } from "@/_lib/http/middlewares";
 
@@ -85,7 +85,7 @@ export const routes = (dependencies: IDependencies) => {
         .get(streamCourseVideo);
 
     router.route("/:id")
-        .get(CurrentUser, RequireAuth, getCourse)
+        .get(getCourse)
         .delete(CurrentUser, requireInstructor, deleteCourse);
 
     return router;
