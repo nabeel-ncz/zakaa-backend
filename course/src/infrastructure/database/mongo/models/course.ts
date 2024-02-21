@@ -62,7 +62,7 @@ const courseSchema = new Schema({
     },
     categoryRef: {
         type: Types.ObjectId,
-        ref: "categoires",
+        ref: "categories",
         required: true
     },
     language: {
