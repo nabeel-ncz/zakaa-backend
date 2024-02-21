@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { uploadMultipleFiles } from "@/_lib/multer";
+import { uploadMultipleFiles, uploadSingleImage } from "@/_lib/multer";
 import { controllers } from "@/presentation/controllers";
 import { CurrentUser } from "@zakaa/common";
 import { IDependencies } from "@/application/interfaces/IDependencies";
@@ -26,13 +26,17 @@ export const routes = (dependencies: IDependencies) => {
         getAllCategories,
         getAvailableCategories,
         streamCourseVideo,
-        getAvailableCourses
+        getAvailableCourses,
+        updateLesson
     } = controllers(dependencies);
 
     router.route("/")
         .get(CurrentUser, requireAdmin, getAllCourse)
         .post(CurrentUser, requireInstructor, createCourse)
         .put(CurrentUser, requireInstructor, updateCourse);
+
+    router.route("/lesson")
+        .put(uploadSingleImage('thumbnail'), updateLesson);
 
     router.route("/active")
         .get(getAvailableCourses);

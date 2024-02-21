@@ -20,6 +20,7 @@ export interface IRepositories {
     createCategory: (data: CategoryEntity) => Promise<CategoryEntity | null>;
     updateCategory: (data: CategoryEntity) => Promise<CategoryEntity | null>;
     getAvailableCourses: () => Promise<CourseEntity[] | null>;
+    updateLesson: (data: any) => Promise<CourseEntity | null>;
 }
 
 

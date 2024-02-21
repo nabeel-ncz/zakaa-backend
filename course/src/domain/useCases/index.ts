@@ -12,3 +12,4 @@ export * from "./IGetAvailableCategoriesUseCase";
 export * from "./ICreateCategoryUseCase";
 export * from "./IUpdateCategoryUseCase";
 export * from "./IGetAvailableCoursesUseCase";
+export * from "./IUpdateLessonUseCase";
