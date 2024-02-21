@@ -11,7 +11,8 @@ import {
     IGetAllCategoriesUseCase,
     IGetAvailableCategoriesUseCase,
     ICreateCategoryUseCase,
-    IUpdateCategoryUseCase
+    IUpdateCategoryUseCase,
+    IGetAvailableCoursesUseCase
 } from "@/domain/useCases";
 import { IDependencies } from "./IDependencies";
 
@@ -29,5 +30,6 @@ export interface IUseCases {
     getAvailableCategoriesUseCase: (dependencies: IDependencies) => IGetAvailableCategoriesUseCase;
     createCategoryUseCase: (dependencies: IDependencies) => ICreateCategoryUseCase;
     updateCategoryUseCase: (dependencies: IDependencies) => IUpdateCategoryUseCase;
+    getAvailableCoursesUseCase: (dependencies: IDependencies) => IGetAvailableCoursesUseCase;
 }
 
