@@ -39,13 +39,8 @@ export const routes = (dependencies: IDependencies) => {
     router.route("/instructor/:instructorId")
         .get(CurrentUser, requireInstructor, getInstructorCourses);
 
-    router.route("/:id")
-        .get(CurrentUser, RequireAuth, getCourse)
-        .delete(CurrentUser, requireInstructor, deleteCourse);
-
     router.route("/:id/active")
         .get(getCourse);
-
 
     router.route("/content/upload")
         .post(
@@ -87,6 +82,10 @@ export const routes = (dependencies: IDependencies) => {
 
     router.route("/video/:vid")
         .get(streamCourseVideo);
+
+    router.route("/:id")
+        .get(CurrentUser, RequireAuth, getCourse)
+        .delete(CurrentUser, requireInstructor, deleteCourse);
 
     return router;
 }

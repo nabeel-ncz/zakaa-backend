@@ -57,6 +57,7 @@ const courseSchema = new Schema({
     },
     instructorRef: {
         type: Types.ObjectId,
+        ref:"users",
         required: true
     },
     categoryRef: {
