@@ -69,6 +69,10 @@ const userSchema = new Schema({
     },
     otp: {
         type: String
+    },
+    profit: {
+        type: Number,
+        default: 0
     }
 }, {
     timestamps: true
