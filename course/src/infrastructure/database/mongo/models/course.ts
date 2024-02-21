@@ -81,6 +81,14 @@ const courseSchema = new Schema({
             type: Number,
             default: 0
         }
+    },
+    isBlocked: {
+        type: Boolean,
+        default: false
+    },
+    isPublished: {
+        type: Boolean,
+        default: false
     }
 }, {
     timestamps: true
