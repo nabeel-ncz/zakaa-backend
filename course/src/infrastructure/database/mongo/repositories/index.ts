@@ -16,3 +16,4 @@ export * from "./getAvailableCategories";
 export * from "./createCategory";
 export * from "./updateCategory";
 export * from "./getAvailableCourses";
+export * from "./updateLesson";

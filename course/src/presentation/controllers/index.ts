@@ -16,6 +16,7 @@ import { createCategoryController } from "./createCategoryController";
 import { updateCategoryController } from "./updateCategoryController";
 import { streamCourseVideoController } from "./streamCourseVideoController";
 import { getAvailableCoursesController } from "./getAvailableCoursesController";
+import { updateLessonController } from "./updateLessonController";
 
 export const controllers = (dependencies: IDependencies) => {
     return {
@@ -36,6 +37,7 @@ export const controllers = (dependencies: IDependencies) => {
         createCategory: createCategoryController(dependencies),
         updateCategory: updateCategoryController(dependencies),
         streamCourseVideo: streamCourseVideoController(dependencies),
-        getAvailableCourses: getAvailableCoursesController(dependencies)
+        getAvailableCourses: getAvailableCoursesController(dependencies),
+        updateLesson: updateLessonController(dependencies)
     }
 };
