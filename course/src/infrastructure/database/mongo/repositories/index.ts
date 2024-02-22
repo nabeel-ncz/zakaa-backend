@@ -17,3 +17,4 @@ export * from "./createCategory";
 export * from "./updateCategory";
 export * from "./getAvailableCourses";
 export * from "./updateLesson";
+export * from "./getAssessmentById";
