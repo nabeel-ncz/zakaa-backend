@@ -1,6 +1,6 @@
 import { Assessment } from "../models";
 
-export const getAssessmentsById = async (
+export const getAssessmentById = async (
     id: string
 ) => {
     try {
