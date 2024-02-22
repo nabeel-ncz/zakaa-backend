@@ -14,3 +14,4 @@ export * from "./updateAssessmentUseCase";
 export * from "./getAssessmentsByInstructorId";
 export * from "./getAvailableCoursesUseCase";
 export * from "./updateLessonUseCase";
+export * from "./getAssessmentByIdUseCase";

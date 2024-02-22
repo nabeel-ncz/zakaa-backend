@@ -21,6 +21,7 @@ export interface IRepositories {
     updateCategory: (data: CategoryEntity) => Promise<CategoryEntity | null>;
     getAvailableCourses: () => Promise<CourseEntity[] | null>;
     updateLesson: (data: any) => Promise<CourseEntity | null>;
+    getAssessmentById: (id: string) => Promise<CourseEntity | null>;
 }
 
 
