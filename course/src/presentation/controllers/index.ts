@@ -18,6 +18,7 @@ import { streamCourseVideoController } from "./streamCourseVideoController";
 import { getAvailableCoursesController } from "./getAvailableCoursesController";
 import { updateLessonController } from "./updateLessonController";
 import { getAssessmentByIdController } from "./getAssessmentByIdController";
+import { updateAssessmentQuestionController } from "./updateAssessmentQuestionController";
 
 export const controllers = (dependencies: IDependencies) => {
     return {
@@ -40,6 +41,7 @@ export const controllers = (dependencies: IDependencies) => {
         streamCourseVideo: streamCourseVideoController(dependencies),
         getAvailableCourses: getAvailableCoursesController(dependencies),
         updateLesson: updateLessonController(dependencies),
-        getAssessmentById: getAssessmentByIdController(dependencies)
+        getAssessmentById: getAssessmentByIdController(dependencies),
+        updateAssessmentQuestion: updateAssessmentQuestionController(dependencies)
     }
 };

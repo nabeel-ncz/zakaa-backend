@@ -18,3 +18,4 @@ export * from "./updateCategory";
 export * from "./getAvailableCourses";
 export * from "./updateLesson";
 export * from "./getAssessmentById";
+export * from "./updateAssessmentQuestion";

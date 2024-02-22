@@ -14,3 +14,4 @@ export * from "./IUpdateCategoryUseCase";
 export * from "./IGetAvailableCoursesUseCase";
 export * from "./IUpdateLessonUseCase";
 export * from "./IGetAssessmentByIdUseCase";
+export * from "./IUpdateAssessmentQuestionUseCase";

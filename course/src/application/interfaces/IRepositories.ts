@@ -13,7 +13,7 @@ export interface IRepositories {
     getCoursesByInstructorId: (id: string) => Promise<CourseEntity[] | null>;
     createAssessment: (data: AssessmentEntity) => Promise<AssessmentEntity | null>;
     updateAssessment: (data: AssessmentEntity) => Promise<AssessmentEntity | null>;
-    getAllAssessments:  () => Promise<AssessmentEntity[] | null>;
+    getAllAssessments: () => Promise<AssessmentEntity[] | null>;
     getAssessmentsByInstructorId: (id: string) => Promise<AssessmentEntity[] | null>;
     getAllCategories: () => Promise<CategoryEntity[] | null>;
     getAvailableCategories: () => Promise<CategoryEntity[] | null>;
@@ -22,6 +22,7 @@ export interface IRepositories {
     getAvailableCourses: () => Promise<CourseEntity[] | null>;
     updateLesson: (data: any) => Promise<CourseEntity | null>;
     getAssessmentById: (id: string) => Promise<AssessmentEntity | null>;
+    updateAssessmentQuestion: (data: any) => Promise<AssessmentEntity | null>;
 }
 
 
