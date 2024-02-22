@@ -28,7 +28,8 @@ export const routes = (dependencies: IDependencies) => {
         streamCourseVideo,
         getAvailableCourses,
         updateLesson,
-        getAssessmentById
+        getAssessmentById,
+        updateAssessmentQuestion
     } = controllers(dependencies);
 
     router.route("/")
@@ -74,6 +75,9 @@ export const routes = (dependencies: IDependencies) => {
         .post(createAssessment)
         .put(updateAssessment)
         .get(getAllAssessments);
+
+    router.route("/assessment/question")
+        .put(updateAssessmentQuestion);
 
     router.route("/assessment/:instructorId")
         .get(getAssessmentsByInstructorId);
