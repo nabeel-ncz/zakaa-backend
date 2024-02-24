@@ -1,9 +1,8 @@
 import ffmpeg from "fluent-ffmpeg";
+import ffmpegInstaller from "@ffmpeg-installer/ffmpeg";
 import path from "path";
 
-ffmpeg.setFfmpegPath("C:/ffmpeg/bin/ffmpeg.exe");
-ffmpeg.setFfprobePath("C:/ffmpeg/bin/ffprobe.exe");
-ffmpeg.setFlvtoolPath("C:/ffmpeg/bin/ffplay.exe");
+ffmpeg.setFfmpegPath(ffmpegInstaller.path);
 
 export const createVideoVersions = (inputVideo: any) => {
 
