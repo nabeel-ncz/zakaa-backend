@@ -1,9 +1,9 @@
 import express, { Request, Response, NextFunction, Application } from "express";
 import { NotFoundError, ErrorHandler } from "@zakaa/common";
-import helmet from "helmet";
-import cookieParser from "cookie-parser";
 import { dependencies } from "@/_boot/dependencies";
-import { routes } from "@/presentation/routes";
+import { routes } from "@/infrastructure/routes";
+import cookieParser from "cookie-parser";
+import helmet from "helmet";
 import path from "path";
 
 const app: Application = express();

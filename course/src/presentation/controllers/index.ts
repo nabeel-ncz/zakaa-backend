@@ -1,24 +1,33 @@
 import { IDependencies } from "@/application/interfaces/IDependencies";
-import { createCourseController } from "./createCourseController";
-import { updateCourseController } from "./updateCourseController";
-import { getAllCoursesController } from "./getAllCoursesController";
-import { getCourseByIdController } from "./getCourseByIdController";
-import { uploadCourseContentController } from "./uploadCourseContentController";
-import { uploadLessonContentController } from "./uploadLessonContentController";
-import { getInstructorCoursesController } from "./getInstructorCoursesController";
-import { createAssessmentController } from "./createAssessmentController";
-import { updateAssessmentController } from "./updateAssessmentController";
-import { getAllAssessmentsController } from "./getAllAssessmentsController";
-import { getAssessmentsByInstructorIdController } from "./getAssessmentsByInstructorIdController";
-import { getAllCategoriesController } from "./getAllCategoriesController";
-import { getAvailableCategoriesController } from "./getAvailableCategoriesController";
-import { createCategoryController } from "./createCategoryController";
-import { updateCategoryController } from "./updateCategoryController";
-import { streamCourseVideoController } from "./streamCourseVideoController";
-import { getAvailableCoursesController } from "./getAvailableCoursesController";
-import { updateLessonController } from "./updateLessonController";
-import { getAssessmentByIdController } from "./getAssessmentByIdController";
-import { updateAssessmentQuestionController } from "./updateAssessmentQuestionController";
+
+import {
+    createAssessmentController,
+    updateAssessmentQuestionController,
+    updateAssessmentController,
+    getAllAssessmentsController,
+    getAssessmentByIdController,
+    getAssessmentsByInstructorIdController
+} from "@/presentation/controllers/assessment";
+
+import {
+    createCourseController,
+    updateCourseController,
+    getAllCoursesController,
+    getCourseByIdController,
+    getInstructorCoursesController,
+    streamCourseVideoController,
+    updateLessonController,
+    uploadCourseContentController,
+    uploadLessonContentController,
+    getAvailableCoursesController
+} from "@/presentation/controllers/course";
+
+import {
+    updateCategoryController,
+    createCategoryController,
+    getAllCategoriesController,
+    getAvailableCategoriesController
+} from "@/presentation/controllers/category";
 
 export const controllers = (dependencies: IDependencies) => {
     return {
@@ -26,7 +35,7 @@ export const controllers = (dependencies: IDependencies) => {
         updateCourse: updateCourseController(dependencies),
         getAllCourse: getAllCoursesController(dependencies),
         getCourse: getCourseByIdController(dependencies),
-        deleteCourse: () => {},
+        deleteCourse: () => { },
         uploadCourseContent: uploadCourseContentController(dependencies),
         uploadLessonContent: uploadLessonContentController(dependencies),
         getInstructorCourses: getInstructorCoursesController(dependencies),

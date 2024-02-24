@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { uploadMultipleFiles, uploadSingleImage } from "@/_lib/multer";
-import { controllers } from "@/presentation/controllers";
 import { CurrentUser } from "@zakaa/common";
+import { controllers } from "@/presentation/controllers";
 import { IDependencies } from "@/application/interfaces/IDependencies";
+import { uploadMultipleFiles, uploadSingleImage } from "@/_lib/multer";
 import { requireInstructor, requireAdmin } from "@/_lib/http/middlewares";
 
 export const routes = (dependencies: IDependencies) => {
