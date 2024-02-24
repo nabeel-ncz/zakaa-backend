@@ -93,7 +93,7 @@ export const routes = (dependencies: IDependencies) => {
     router.route("/category/available")
         .get(getAvailableCategories);
 
-    router.route("/video/:vid")
+    router.route("/video/:segment")
         .get(streamCourseVideo);
 
     router.route("/:id")
