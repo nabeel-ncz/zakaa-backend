@@ -1,6 +1,7 @@
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { Request, Response, NextFunction } from "express";
 const rangeParser = require("range-parser");
+import path from "path";
 import fs from "fs";
 
 export const streamCourseVideoController = (dependencies: IDependencies) => {
@@ -11,7 +12,7 @@ export const streamCourseVideoController = (dependencies: IDependencies) => {
 
         try {
             const segment = req.params?.segment;
-            const filePath = `../../../public/videos/${segment}`;
+            const filePath = path.join(__dirname, "..", "..", "..", "public", "videos", segment);
 
             fs.access(filePath, fs.constants.F_OK, (err) => {
                 if (err) {
