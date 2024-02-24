@@ -15,9 +15,8 @@ const lessonSchema = new Schema({
         required: true
     },
     video: {
-        high: String,
-        medium: String,
-        low: String
+        type: String,
+        required: true
     },
     attachments: {
         title: String,
@@ -36,9 +35,7 @@ const trialSchema = new Schema({
         type: String
     },
     video: {
-        high: String,
-        medium: String,
-        low: String
+        type: String
     }
 });
 
@@ -57,7 +54,7 @@ const courseSchema = new Schema({
     },
     instructorRef: {
         type: Types.ObjectId,
-        ref:"users",
+        ref: "users",
         required: true
     },
     categoryRef: {

@@ -4,11 +4,7 @@ interface Lesson {
     title: string;
     description: string;
     thumbnail: string;
-    video: {
-        high: string;
-        medium: string;
-        low: string;
-    };
+    video: string;
     attachments?: {
         title: string;
         url: string;
@@ -19,11 +15,7 @@ interface Trial {
     title: string;
     description: string;
     thumbnail: string;
-    video: {
-        high: string;
-        medium: string;
-        low: string;
-    }
+    video: string;
 }
 
 enum PricingType {
