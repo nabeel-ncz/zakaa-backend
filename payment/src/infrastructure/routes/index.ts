@@ -8,7 +8,8 @@ export const routes = (dependencies: IDependencies) => {
 
     const {
         createPayment,
-        updatePayment
+        updatePayment,
+        makePayment
     } = controllers(dependencies);
 
     router.route("/")
@@ -16,6 +17,7 @@ export const routes = (dependencies: IDependencies) => {
         .put(CurrentUser, RequireAuth, updatePayment);
     
     router.route("/stripe")
+        .post(makePayment);
         
 
     return router;
