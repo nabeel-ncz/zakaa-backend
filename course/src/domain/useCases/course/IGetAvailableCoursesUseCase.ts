@@ -1,5 +1,5 @@
 import { CourseEntity } from "@/domain/entities";
 
 export interface IGetAvailableCoursesUseCase {
-    execute(): Promise<CourseEntity[] | null>;
+    execute(data: any): Promise<CourseEntity[] | null>;
 }
