@@ -7,8 +7,8 @@ export const getAvailableCoursesUseCase = (dependencies: IDependencies) => {
     } = dependencies;
 
     return {
-        execute: async () => {
-            return await getAvailableCourses();
+        execute: async (query: any) => {
+            return await getAvailableCourses(query);
         }
     }
 };
