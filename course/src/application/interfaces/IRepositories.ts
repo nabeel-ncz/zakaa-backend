@@ -1,4 +1,4 @@
-import { AssessmentEntity, CategoryEntity, CourseEntity } from "@/domain/entities";
+import { AssessmentEntity, CategoryEntity, CourseEntity, EnrollmentEntity } from "@/domain/entities";
 
 export interface IRepositories {
     createCourse: (data: CourseEntity) => Promise<CourseEntity | null>;
@@ -23,6 +23,8 @@ export interface IRepositories {
     updateLesson: (data: any) => Promise<CourseEntity | null>;
     getAssessmentById: (id: string) => Promise<AssessmentEntity | null>;
     updateAssessmentQuestion: (data: any) => Promise<AssessmentEntity | null>;
+    createEnrollment: (data: any) => Promise<EnrollmentEntity | null>;
+    getEnrollmentByUserId: (userId: string) => Promise<EnrollmentEntity | null>;
 }
 
 
