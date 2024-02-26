@@ -41,6 +41,13 @@ setupProxies(app, [
             target: "http://localhost:3004",
             changeOrigin: true,
         }
+    },
+    {
+        url: '/api/payment',
+        proxy: {
+            target: "http://localhost:3005",
+            changeOrigin: true,
+        }
     }
 ]);
 
