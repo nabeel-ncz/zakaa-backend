@@ -13,10 +13,14 @@ export const config = {
     },
     secrets: {
         access_token: envString('ACCESS_TOKEN_SECRET', 'testsecret'),
-        refresh_token: envString('REFRESH_TOKEN_SECRET', 'testsecret')
+        refresh_token: envString('REFRESH_TOKEN_SECRET', 'testsecret'),
+        stripe_key: envString('STRIPE_SECRET_KEY', '')
     },
     kafka: {
         broker_urls: envString('KAFKA_BROKER_URLS', 'localhost:29092'),
         client_id: envString('KAFKA_CLIENT_ID', 'kafka-payment-client')
+    },
+    fronend: {
+        url: envString('FRONTEND_URL', 'http://localhost:5000')
     }
 };
