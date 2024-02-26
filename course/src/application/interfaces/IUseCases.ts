@@ -15,7 +15,9 @@ import {
     IGetAvailableCoursesUseCase,
     IUpdateLessonUseCase,
     IGetAssessmentByIdUseCase,
-    IUpdateAssessmentQuestionUseCase
+    IUpdateAssessmentQuestionUseCase,
+    ICreateEnrollmentUseCase,
+    IGetEnrollmentByUserIdUseCase
 } from "@/domain/useCases";
 import { IDependencies } from "./IDependencies";
 
@@ -37,5 +39,7 @@ export interface IUseCases {
     updateLessonUseCase: (dependencies: IDependencies) => IUpdateLessonUseCase;
     getAssessmentByIdUseCase: (dependencies: IDependencies) => IGetAssessmentByIdUseCase;
     updateAssessmentQuestionUseCase: (dependencies: IDependencies) => IUpdateAssessmentQuestionUseCase;
+    createEnrollmentUseCase: (dependencies: IDependencies) => ICreateEnrollmentUseCase;
+    getEnrollmentByUserIdUseCase: (dependencies: IDependencies) => IGetEnrollmentByUserIdUseCase;
 }
 

@@ -4,6 +4,8 @@ import { controllers } from "@/presentation/controllers";
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { uploadMultipleFiles, uploadSingleImage } from "@/_lib/multer";
 import { requireInstructor, requireAdmin } from "@/_lib/http/middlewares";
+import { createEnrollmentController } from "@/presentation/controllers/enrollment";
+import { getEnrollmentByUserId } from "../database/mongo/repositories/enrollment";
 
 export const routes = (dependencies: IDependencies) => {
     const router = Router();
@@ -95,6 +97,12 @@ export const routes = (dependencies: IDependencies) => {
 
     router.route("/video/:segment")
         .get(streamCourseVideo);
+
+    router.route("/enrollment")
+        .post(createEnrollmentController);
+
+    router.route("/enrollment/:userId")
+        .get(getEnrollmentByUserId);
 
     router.route("/:id")
         .get(getCourse)
