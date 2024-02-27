@@ -6,13 +6,45 @@ import fs from "fs";
 
 export const streamCourseVideoController = (dependencies: IDependencies) => {
 
-    const { } = dependencies;
+    const {
+        useCases: { getCourseByIdUseCase, getEnrollmentByUserIdUseCase }
+    } = dependencies;
 
     return async (req: Request, res: Response, next: NextFunction) => {
 
         try {
+            const userId = req.user?._id;
+            const courseId = req.params?.courseId;
             const segment = req.params?.segment;
             const filePath = path.join(__dirname, "..", "..", "..", "public", "videos", segment);
+
+            const course = await getCourseByIdUseCase(dependencies)
+                .execute(courseId);
+
+            if (!course) {
+                throw new Error("Content doesn't exist");
+            };
+
+            if (course.pricing?.type === "paid" && course.trial?.video.toString() !== segment) {
+
+                if(!userId){
+                    throw new Error("UnAuthorized access!");
+                }
+
+                const userEnrolled = await getEnrollmentByUserIdUseCase(dependencies)
+                    .execute(userId as string);
+
+                if (!userEnrolled) {
+                    throw new Error("You are not allowed to access this content!");
+                }
+
+                const exist = userEnrolled.find((item) => item.courseId.toString() === courseId.toString());
+                
+                if(!exist){
+                    throw new Error("Please enroll to the course, for access the content!");
+                }
+
+            }
 
             fs.access(filePath, fs.constants.F_OK, (err) => {
                 if (err) {
