@@ -95,8 +95,8 @@ export const routes = (dependencies: IDependencies) => {
     router.route("/category/available")
         .get(getAvailableCategories);
 
-    router.route("/video/:segment")
-        .get(streamCourseVideo);
+    router.route("/video/:courseId/:segment")
+        .get(CurrentUser, streamCourseVideo);
 
     router.route("/enrollment")
         .post(CurrentUser, RequireAuth, createEnrollment);

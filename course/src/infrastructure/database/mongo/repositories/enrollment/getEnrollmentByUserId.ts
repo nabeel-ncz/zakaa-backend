@@ -3,10 +3,10 @@ import { EnrollmentEntity } from "@/domain/entities";
 
 export const getEnrollmentByUserId = async (
     userId: string
-): Promise<EnrollmentEntity | null> => {
+): Promise<EnrollmentEntity[] | null> => {
     try {
 
-        const enrollment = await Enrollment.findOne({ userId });
+        const enrollment = await Enrollment.find({ userId });
 
         if (!enrollment) {
             throw new Error("Course enrollment failed!");
