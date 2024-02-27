@@ -1,11 +1,9 @@
 import { Router } from "express";
-import { CurrentUser } from "@zakaa/common";
+import { CurrentUser, RequireAuth } from "@zakaa/common";
 import { controllers } from "@/presentation/controllers";
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { uploadMultipleFiles, uploadSingleImage } from "@/_lib/multer";
 import { requireInstructor, requireAdmin } from "@/_lib/http/middlewares";
-import { createEnrollmentController } from "@/presentation/controllers/enrollment";
-import { getEnrollmentByUserId } from "../database/mongo/repositories/enrollment";
 
 export const routes = (dependencies: IDependencies) => {
     const router = Router();
@@ -31,7 +29,9 @@ export const routes = (dependencies: IDependencies) => {
         getAvailableCourses,
         updateLesson,
         getAssessmentById,
-        updateAssessmentQuestion
+        updateAssessmentQuestion,
+        createEnrollment,
+        getEnrollmentByUserId
     } = controllers(dependencies);
 
     router.route("/")
@@ -99,10 +99,10 @@ export const routes = (dependencies: IDependencies) => {
         .get(streamCourseVideo);
 
     router.route("/enrollment")
-        .post(createEnrollmentController);
+        .post(CurrentUser, RequireAuth, createEnrollment);
 
     router.route("/enrollment/:userId")
-        .get(getEnrollmentByUserId);
+        .get(CurrentUser, RequireAuth, getEnrollmentByUserId);
 
     router.route("/:id")
         .get(getCourse)
