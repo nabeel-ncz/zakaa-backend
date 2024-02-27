@@ -24,7 +24,7 @@ export const makePaymentController = (dependencies: IDependencies) => {
                             name: courseName,
                             images: [courseThumbnail]
                         },
-                        unit_amount: amount
+                        unit_amount: Math.floor(amount * 100)
                     },
                     quantity: 1
                 }
