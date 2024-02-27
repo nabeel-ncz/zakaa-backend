@@ -34,8 +34,8 @@ export const makePaymentController = (dependencies: IDependencies) => {
                 payment_method_types: ["card"],
                 line_items: data,
                 mode: "payment",
-                success_url: `${config.fronend.url}/course/purchase/success`,
-                cancel_url: `${config.fronend.url}/course/purchase/failed`
+                success_url: `${config.fronend.url}/courses/purchase/success`,
+                cancel_url: `${config.fronend.url}/courses/purchase/failed`
             });
 
             const result = await createSessionUseCase(dependencies).execute({
