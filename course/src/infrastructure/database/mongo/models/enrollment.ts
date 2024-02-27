@@ -14,24 +14,26 @@ const enrollmentSchema = new Schema({
     },
     enrolledAt: {
         type: Schema.Types.Date,
-        default: Date.now()
+        default: function () {
+            return Date.now();
+        }
     },
     progress: {
         completedLessons: {
             type: [Schema.Types.ObjectId],
-            default: function () {
-                return [];
-            }
+            // default: function () {
+            //     return [];
+            // }
         },
         completedAssessments: {
             type: [Schema.Types.ObjectId],
-            default: function () {
-                return [];
-            }
+            // default: function () {
+            //     return [];
+            // }
         },
         currentLesson: {
             type: Schema.Types.ObjectId,
-            default: ""
+            // default: ""
         }
     }
 });

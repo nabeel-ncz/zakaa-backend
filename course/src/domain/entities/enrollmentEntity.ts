@@ -5,9 +5,9 @@ export interface EnrollmentEntity {
     userId: Types.ObjectId;
     courseId: Types.ObjectId;
     enrolledAt: Types.ObjectId;
-    progress: {
-        completedLessons: Types.ObjectId[] | [];
-        completedAssessments: Types.ObjectId[] | [];
-        currentLesson: Types.ObjectId | string;
+    progress?: {
+        completedLessons?: Types.ObjectId[] | [] | null;
+        completedAssessments?: Types.ObjectId[] | [] | null;
+        currentLesson?: Types.ObjectId | string;
     };
 };
