@@ -46,4 +46,5 @@ export interface UserEntity {
     updatedAt?: Date;
     otp?: string;
     profession?: string;
+    profit?: number;
 }
