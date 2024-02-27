@@ -17,9 +17,22 @@ const enrollmentSchema = new Schema({
         default: Date.now()
     },
     progress: {
-        completedLessons: [Schema.Types.ObjectId],
-        completedAssessments: [Schema.Types.ObjectId],
-        currentLesson: Schema.Types.ObjectId
+        completedLessons: {
+            type: [Schema.Types.ObjectId],
+            default: function () {
+                return [];
+            }
+        },
+        completedAssessments: {
+            type: [Schema.Types.ObjectId],
+            default: function () {
+                return [];
+            }
+        },
+        currentLesson: {
+            type: Schema.Types.ObjectId,
+            default: ""
+        }
     }
 });
 
