@@ -1,4 +1,5 @@
 import { IDependencies } from "@/application/interfaces/IDependencies";
+import { coursePaymentSuccessProducer } from "@/infrastructure/messages/kafka/producer";
 import { Request, Response, NextFunction } from "express";
 
 export const createPaymentController = (dependencies: IDependencies) => {
@@ -19,6 +20,14 @@ export const createPaymentController = (dependencies: IDependencies) => {
             if(!result){
                 throw new Error("payment failed!");
             }
+
+            //produce-payment-success-page
+            await coursePaymentSuccessProducer({
+                userId: result.userId.toString(),
+                courseId: result.courseId.toString(),
+                amount: result.amount
+            });
+            //================================
 
             res.status(200).json({
                 success: true,
