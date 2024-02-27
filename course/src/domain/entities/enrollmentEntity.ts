@@ -4,7 +4,7 @@ export interface EnrollmentEntity {
     _id?: Types.ObjectId;
     userId: Types.ObjectId;
     courseId: Types.ObjectId;
-    enrolledAt?: Date | number | string;
+    enrolledAt?: Date | string;
     progress?: {
         completedLessons?: Types.ObjectId[] | [] | null;
         completedAssessments?: Types.ObjectId[] | [] | null;

@@ -1,12 +1,7 @@
-import { Types } from "mongoose";
 import { createEnrollment } from "@/infrastructure/database/mongo/repositories";
 
 export default async (
-    data: {
-        userId: Types.ObjectId,
-        courseId: Types.ObjectId,
-        amount: number
-    }
+    data: any
 ) => {
 
     try {
@@ -14,15 +9,15 @@ export default async (
         await createEnrollment({
             userId: data.userId,
             courseId: data.courseId,
-            enrolledAt: Date.now()
+            enrolledAt: Date.now().toString()
         });
 
         console.log("==========");
-        console.log("course-payment-success-consumed");
+        console.log("coursePaymentSuccessConsumer");
         console.log("==========");
 
     } catch (error: any) {
-        console.log("course-payment-success-consumed error: ", error?.message);
+        console.log("coursePaymentSuccessConsumer error: ", error?.message);
     }
 
 }
