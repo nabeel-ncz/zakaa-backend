@@ -9,7 +9,8 @@ export const routes = (dependencies: IDependencies) => {
     const {
         createPayment,
         updatePayment,
-        makePayment
+        makePayment,
+        getPaymentSessionById
     } = controllers(dependencies);
 
     router.route("/")
@@ -18,6 +19,9 @@ export const routes = (dependencies: IDependencies) => {
     
     router.route("/stripe")
         .post(makePayment);
+
+    router.route("/session/:id")
+        .get(getPaymentSessionById)
         
 
     return router;
