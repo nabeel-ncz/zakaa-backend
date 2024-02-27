@@ -21,6 +21,6 @@ export const config = {
         client_id: envString('KAFKA_CLIENT_ID', 'kafka-payment-client')
     },
     fronend: {
-        url: envString('FRONTEND_URL', 'http://localhost:5000')
+        url: envString('FRONTEND_URL', 'http://localhost:3000')
     }
 };

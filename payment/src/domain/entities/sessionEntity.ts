@@ -1,10 +1,8 @@
 import { Types } from "mongoose";
 
-export interface PaymentEntity {
+export interface SessionEntity {
     _id?: Types.ObjectId;
+    sessionId: string;
     userId: Types.ObjectId;
     courseId: Types.ObjectId;
-    method: string;
-    status: string;
-    amount: number;
 }

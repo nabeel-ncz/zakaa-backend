@@ -6,15 +6,15 @@ import stripe from "stripe";
 export const makePaymentController = (dependencies: IDependencies) => {
 
     const {
-        useCases: { }
+        useCases: { createSessionUseCase }
     } = dependencies;
 
     return async (req: Request, res: Response, next: NextFunction) => {
 
         try {
 
-            const stripeInstance = new stripe(`${config.fronend.url}`);
-            const { courseName, courseThumbnail } = req.body;
+            const stripeInstance = new stripe(`${config.secrets.stripe_key}`);
+            const { courseName, courseThumbnail, userId, courseId, amount } = req.body;
 
             const data = [
                 {
@@ -22,9 +22,9 @@ export const makePaymentController = (dependencies: IDependencies) => {
                         currency: "USD",
                         product_data: {
                             name: courseName,
-                            image: [courseThumbnail]
+                            images: [courseThumbnail]
                         },
-                        unit_amount: 1000
+                        unit_amount: amount
                     },
                     quantity: 1
                 }
@@ -38,10 +38,16 @@ export const makePaymentController = (dependencies: IDependencies) => {
                 cancel_url: `${config.fronend.url}/course/purchase/failed`
             });
 
+            const result = await createSessionUseCase(dependencies).execute({
+                userId,
+                courseId,
+                sessionId: session.id
+            });
+
             res.status(200).json({
                 success: true,
-                data: { sessionId: session.id },
-                message: "payment created!"
+                data: result,
+                message: "session created!"
             });
 
         } catch (error) {
