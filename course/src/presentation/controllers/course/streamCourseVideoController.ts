@@ -13,7 +13,7 @@ export const streamCourseVideoController = (dependencies: IDependencies) => {
     return async (req: Request, res: Response, next: NextFunction) => {
 
         try {
-            const userId = req.user?._id;
+            const userId = req.query?.userId;
             const courseId = req.params?.courseId;
             const segment = req.params?.segment;
             const filePath = path.join(__dirname, "..", "..", "..", "public", "videos", segment);
