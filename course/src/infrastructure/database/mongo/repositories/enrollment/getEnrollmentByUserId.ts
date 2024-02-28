@@ -6,7 +6,7 @@ export const getEnrollmentByUserId = async (
 ): Promise<EnrollmentEntity[] | null> => {
     try {
 
-        const enrollment = await Enrollment.find({ userId });
+        const enrollment = await Enrollment.find({ userId }).populate("courseId");
 
         if (!enrollment) {
             throw new Error("Course enrollment failed!");
