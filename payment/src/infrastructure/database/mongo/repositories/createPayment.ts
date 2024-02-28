@@ -6,6 +6,16 @@ export const createPayment = async (
 ): Promise<PaymentEntity | null> => {
     try {
 
+        const existing = await Payment.findOne({ 
+            userId: data.userId, 
+            courseId: data.courseId,
+            status: data.status  
+        });
+
+        if(existing){
+            throw new Error("You are already subcribed!");
+        }
+
         const newPayment = await Payment.create(data);
 
         if (!newPayment) {
