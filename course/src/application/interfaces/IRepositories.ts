@@ -26,6 +26,7 @@ export interface IRepositories {
     createEnrollment: (data: any) => Promise<EnrollmentEntity | null>;
     getEnrollmentByUserId: (userId: string) => Promise<EnrollmentEntity[] | null>;
     getEnrollmentById: (id: string) => Promise<EnrollmentEntity | null>;
+    getAssessmentsByCourseId: (id: string) => Promise<AssessmentEntity[] | null>;
 }
 
 
