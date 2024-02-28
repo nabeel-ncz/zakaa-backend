@@ -16,7 +16,7 @@ export const createEnrollmentController = (dependencies: IDependencies) => {
             const enrollments = await getEnrollmentByUserIdUseCase(dependencies)
                 .execute(body?.userId);
 
-            const existingEnrollment = enrollments?.find((item) => item.courseId?._id === body?.courseId);
+            const existingEnrollment = enrollments?.find((item) => item.courseId?._id?.toString() === body?.courseId?.toString());
 
             if(existingEnrollment){
                 throw new Error("You are already subscribed this course!");
