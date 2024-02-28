@@ -32,7 +32,8 @@ export const routes = (dependencies: IDependencies) => {
         updateAssessmentQuestion,
         createEnrollment,
         getEnrollmentByUserId,
-        getEnrollmentById
+        getEnrollmentById,
+        getAssessmentsByCourseId
     } = controllers(dependencies);
 
     router.route("/")
@@ -82,11 +83,15 @@ export const routes = (dependencies: IDependencies) => {
     router.route("/assessment/question")
         .put(updateAssessmentQuestion);
 
-    router.route("/assessment/:instructorId")
+
+    router.route("/assessment/:id")
+        .get(getAssessmentById);
+
+    router.route("/assessment/instructor/:instructorId")
         .get(getAssessmentsByInstructorId);
 
-    router.route("/assessment/by/:id")
-        .get(getAssessmentById);
+    router.route("/assessment/course/:courseId")
+        .get(getAssessmentsByCourseId);
 
     router.route("/category")
         .post(CurrentUser, requireAdmin, createCategory)
