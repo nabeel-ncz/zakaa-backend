@@ -12,24 +12,14 @@ export const getAvailableCoursesController = (dependencies: IDependencies) => {
         try {
 
             const {
-                search = "",
                 page = 0,
                 limit = 0,
-                type = "",
-                category = "",
-                priceFrom = 0,
-                priceTo = Number.MAX_SAFE_INTEGER
             } = req.query;
 
             const result = await getAvailableCoursesUseCase(dependencies)
                 .execute({
-                    search,
                     page,
-                    limit,
-                    type,
-                    category,
-                    priceFrom,
-                    priceTo
+                    limit
                 });
 
             if (!result) {
