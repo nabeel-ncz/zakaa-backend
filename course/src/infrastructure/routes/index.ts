@@ -102,7 +102,7 @@ export const routes = (dependencies: IDependencies) => {
         .get(getAvailableCategories);
 
     router.route("/video/:courseId/:segment")
-        .get(CurrentUser, streamCourseVideo);
+        .get(streamCourseVideo);
 
     router.route("/enrollment")
         .post(CurrentUser, RequireAuth, createEnrollment);
