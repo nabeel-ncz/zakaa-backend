@@ -13,7 +13,7 @@ export const createPayment = async (
         });
 
         if(existing){
-            throw new Error("You are already subcribed!");
+            return existing;
         }
 
         const newPayment = await Payment.create(data);
