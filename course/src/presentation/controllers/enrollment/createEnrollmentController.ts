@@ -4,15 +4,26 @@ import { Request, Response, NextFunction } from "express";
 export const createEnrollmentController = (dependencies: IDependencies) => {
 
     const {
-        useCases: { createEnrollmentUseCase }
+        useCases: { createEnrollmentUseCase, getEnrollmentByUserIdUseCase }
     } = dependencies;
 
     return async (req: Request, res: Response, next: NextFunction) => {
 
         try {
 
+            const body = req.body;
+
+            const enrollments = await getEnrollmentByUserIdUseCase(dependencies)
+                .execute(body?.userId);
+
+            const existingEnrollment = enrollments?.find((item) => item.courseId?._id === body?.courseId);
+
+            if(existingEnrollment){
+                throw new Error("You are already subscribed this course!");
+            }
+
             const result = await createEnrollmentUseCase(dependencies)
-                .execute(req.body);
+                .execute(body);
 
             if (!result) {
                 throw new Error("Enrollment creation failed!");
