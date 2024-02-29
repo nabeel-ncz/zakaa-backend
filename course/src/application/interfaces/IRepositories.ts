@@ -32,6 +32,7 @@ export interface IRepositories {
     getAllResults: () => Promise<ResultEntity[] | null>;
     getResultByUserId: (userId: string) => Promise<ResultEntity[] | null>;
     getResultById: (id: string) => Promise<ResultEntity | null>;
+    getEnrollmentsByInstructorId: (instructorId: string) => Promise<EnrollmentEntity[] | null>;
 }
 
 
