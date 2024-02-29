@@ -34,7 +34,10 @@ export const routes = (dependencies: IDependencies) => {
         getEnrollmentByUserId,
         getEnrollmentById,
         getAssessmentsByCourseId,
-        updateEnrollment
+        updateEnrollment,
+        createResult,
+        getAllResults,
+        getResultByUserId
     } = controllers(dependencies);
 
     router.route("/")
@@ -93,6 +96,13 @@ export const routes = (dependencies: IDependencies) => {
 
     router.route("/assessment/course/:courseId")
         .get(getAssessmentsByCourseId);
+
+    router.route("/exam/result")
+        .post(createResult)
+        .get(getAllResults);
+
+    router.route("/exam/result/:userId")
+        .get(getResultByUserId);
 
     router.route("/category")
         .post(CurrentUser, requireAdmin, createCategory)
