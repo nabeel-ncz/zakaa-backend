@@ -33,7 +33,11 @@ export const routes = (dependencies: IDependencies) => {
         createEnrollment,
         getEnrollmentByUserId,
         getEnrollmentById,
-        getAssessmentsByCourseId
+        getAssessmentsByCourseId,
+        updateEnrollment,
+        createResult,
+        getAllResults,
+        getResultByUserId
     } = controllers(dependencies);
 
     router.route("/")
@@ -93,6 +97,13 @@ export const routes = (dependencies: IDependencies) => {
     router.route("/assessment/course/:courseId")
         .get(getAssessmentsByCourseId);
 
+    router.route("/exam/result")
+        .post(createResult)
+        .get(getAllResults);
+
+    router.route("/exam/result/:userId")
+        .get(getResultByUserId);
+
     router.route("/category")
         .post(CurrentUser, requireAdmin, createCategory)
         .put(CurrentUser, requireAdmin, updateCategory)
@@ -105,7 +116,8 @@ export const routes = (dependencies: IDependencies) => {
         .get(streamCourseVideo);
 
     router.route("/enrollment")
-        .post(CurrentUser, RequireAuth, createEnrollment);
+        .post(CurrentUser, RequireAuth, createEnrollment)
+        .put(CurrentUser, RequireAuth, updateEnrollment);
 
     router.route("/enrollment/user/:userId")
         .get(CurrentUser, RequireAuth, getEnrollmentByUserId);
