@@ -1,10 +1,13 @@
 import { Enrollment } from "@/infrastructure/database/mongo/models";
 import { EnrollmentEntity } from "@/domain/entities";
+import mongoose from "mongoose";
 
 export const getEnrollmentsByInstructorId = async (
     instructorId: string
 ): Promise<EnrollmentEntity[] | null> => {
     try {
+
+        const objectInstructorId = new mongoose.Types.ObjectId(instructorId);
 
         const enrollment = await Enrollment.aggregate([
             {
@@ -30,7 +33,7 @@ export const getEnrollmentsByInstructorId = async (
                 $unwind: "$user"
             },
             {
-                $match: { "course.instructorId": instructorId }
+                $match: { "course.instructorRef": objectInstructorId }
             }, 
             {
                 $project: {
