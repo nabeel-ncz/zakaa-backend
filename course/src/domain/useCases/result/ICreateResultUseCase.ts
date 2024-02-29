@@ -1,5 +1,5 @@
 import { ResultEntity } from "@/domain/entities";
 
 export interface ICreateResultUseCase {
-    execute(data: ResultEntity): Promise<ResultEntity[] | null>;
+    execute(data: ResultEntity): Promise<ResultEntity | null>;
 }
