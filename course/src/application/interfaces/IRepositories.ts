@@ -31,6 +31,7 @@ export interface IRepositories {
     createResult: (data: ResultEntity) => Promise<ResultEntity | null>;
     getAllResults: () => Promise<ResultEntity[] | null>;
     getResultByUserId: (userId: string) => Promise<ResultEntity[] | null>;
+    getResultById: (id: string) => Promise<ResultEntity | null>;
 }
 
 

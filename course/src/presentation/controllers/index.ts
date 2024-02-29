@@ -40,6 +40,7 @@ import {
 import {
     createResultController,
     getAllResultsController,
+    getResultByIdController,
     getResultByUseIdController
 } from "@/presentation/controllers/result";
 
@@ -73,6 +74,7 @@ export const controllers = (dependencies: IDependencies) => {
         updateEnrollment: updateEnrollmentController(dependencies),
         createResult: createResultController(dependencies),
         getAllResults: getAllResultsController(dependencies),
-        getResultByUserId: getResultByUseIdController(dependencies)
+        getResultByUserId: getResultByUseIdController(dependencies),
+        getResultById: getResultByIdController(dependencies)
     }
 };
