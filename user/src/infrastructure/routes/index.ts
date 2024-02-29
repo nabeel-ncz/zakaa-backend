@@ -4,16 +4,22 @@ import { IDependencies } from "@/application/interfaces/IDependencies";
 import { CurrentUser, RequireAuth } from "@zakaa/common";
 import { requireAdmin } from "@/_lib/http/middlewares";
 
-export const userRoutes = (dependencies: IDependencies) => {
+export const routes = (dependencies: IDependencies) => {
 
     const {
         applyToTeach,
         getInstructorApplications,
         acceptInstructorApplication,
-        verifyInstructorApplication
+        verifyInstructorApplication,
+        updateUserProfile,
+        getUserProfile
     } = controllers(dependencies);
 
     const router = Router();
+
+    router.route("/profile")
+        .get(CurrentUser, RequireAuth, getUserProfile)
+        .put(CurrentUser, RequireAuth, updateUserProfile);
 
     router.route("/instructor/verify")
         .get(CurrentUser, RequireAuth, verifyInstructorApplication);

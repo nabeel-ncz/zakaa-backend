@@ -7,4 +7,6 @@ export interface IRepositories {
     createUser: (data: UserEntity) => Promise<UserEntity | null>;
     updateUserRole: (email: string, role: string) => Promise<UserEntity | null>;
     verifyUser: (data: { email: string, isVerified: boolean }) => Promise<UserEntity | null>;
+    updateUser: (data: UserEntity) => Promise<UserEntity | null>;
+    findUserById: (id: string) => Promise<UserEntity | null>;
 }

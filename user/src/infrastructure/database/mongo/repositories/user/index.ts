@@ -3,3 +3,4 @@ export * from "./updateUserRole";
 export * from "./findUserById";
 export * from "./verifyUser";
 export * from "./updateUserProfit";
+export * from "./updateUser";
