@@ -38,7 +38,8 @@ export const routes = (dependencies: IDependencies) => {
         createResult,
         getAllResults,
         getResultByUserId,
-        getResultById
+        getResultById,
+        getEnrollmentsByInstructorId
     } = controllers(dependencies);
 
     router.route("/")
@@ -125,6 +126,9 @@ export const routes = (dependencies: IDependencies) => {
 
     router.route("/enrollment/user/:userId")
         .get(CurrentUser, RequireAuth, getEnrollmentByUserId);
+
+    router.route("/enrollment/instructor/:instructorId")
+        .get(CurrentUser, RequireAuth, getEnrollmentsByInstructorId);
 
     router.route("/enrollment/:id")
         .get(CurrentUser, RequireAuth, getEnrollmentById);
