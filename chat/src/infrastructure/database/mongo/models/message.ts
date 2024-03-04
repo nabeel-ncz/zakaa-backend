@@ -9,7 +9,7 @@ const messageSchema = new Schema<MessageEntity>({
     },
     sender: {
         type: Schema.Types.ObjectId,
-        ref: "messages",
+        ref: "users",
         required: true
     },
     content: {
@@ -20,6 +20,10 @@ const messageSchema = new Schema<MessageEntity>({
         type: String,
         enum: ['text', 'image', 'audio', 'video', 'file'],
         default: 'text'
+    },
+    recieverSeen: {
+        type: Boolean,
+        default: false
     }
 }, {
     timestamps: true
