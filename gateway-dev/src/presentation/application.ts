@@ -48,6 +48,20 @@ setupProxies(app, [
             target: "http://localhost:3005",
             changeOrigin: true,
         }
+    },
+    {
+        url: '/api/announcement',
+        proxy: {
+            target: "http://localhost:3006",
+            changeOrigin: true,
+        }
+    },
+    {
+        url: '/api/chat',
+        proxy: {
+            target: "http://localhost:3007",
+            changeOrigin: true,
+        }
     }
 ]);
 
