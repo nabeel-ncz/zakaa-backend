@@ -12,7 +12,8 @@ export const routes = (dependencies: IDependencies) => {
         acceptInstructorApplication,
         verifyInstructorApplication,
         updateUserProfile,
-        getUserProfile
+        getUserProfile,
+        getUsersByUsername
     } = controllers(dependencies);
 
     const router = Router();
@@ -32,6 +33,9 @@ export const routes = (dependencies: IDependencies) => {
 
     router.route("/admin/instructor/applications/accept")
         .put(CurrentUser, requireAdmin, acceptInstructorApplication);
+
+    router.route("/username/:username")
+        .get(CurrentUser, RequireAuth, getUsersByUsername);
 
     return router;
 }

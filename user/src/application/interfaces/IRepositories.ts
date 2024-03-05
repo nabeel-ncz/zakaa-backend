@@ -9,4 +9,5 @@ export interface IRepositories {
     verifyUser: (data: { email: string, isVerified: boolean }) => Promise<UserEntity | null>;
     updateUser: (data: UserEntity) => Promise<UserEntity | null>;
     findUserById: (id: string) => Promise<UserEntity | null>;
+    findUsersByUsername: (username: string) => Promise<UserEntity[] | null>;
 }
