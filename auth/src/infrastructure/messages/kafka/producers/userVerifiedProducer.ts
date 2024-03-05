@@ -1,5 +1,10 @@
 import { producer } from "../index";
-import { USER_SERVICE_TOPIC, USER_VEIRIFIED_MESSAGE, COURSE_SERVICE_TOPIC } from "@zakaa/common";
+import { 
+    USER_SERVICE_TOPIC, 
+    USER_VEIRIFIED_MESSAGE, 
+    COURSE_SERVICE_TOPIC, 
+    CHAT_SERVICE_TOPIC 
+} from "@zakaa/common";
 
 export default async (
     data: { 
@@ -15,6 +20,13 @@ export default async (
         const messages = [
             {
                 topic: COURSE_SERVICE_TOPIC,
+                messages: [{
+                    key: USER_VEIRIFIED_MESSAGE,
+                    value: JSON.stringify(data)
+                }]
+            },
+            {
+                topic: CHAT_SERVICE_TOPIC,
                 messages: [{
                     key: USER_VEIRIFIED_MESSAGE,
                     value: JSON.stringify(data)

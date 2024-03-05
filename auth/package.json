@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@zakaa/common": "^1.1.1",
+    "@zakaa/common": "^1.1.3",
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.4.1",
