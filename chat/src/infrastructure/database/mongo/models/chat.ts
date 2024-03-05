@@ -11,6 +11,11 @@ const chatSchema = new Schema({
         enum: ['individual', 'group'],
         default: 'individual'
     },
+    status: {
+        type: String,
+        enum:['requested', 'active', 'block'],
+        default: 'requested'
+    },
     groupName: {
         type: String
     },
