@@ -3,3 +3,4 @@ export * from "./ICreateMessageUseCase";
 export * from "./IGetChatByIdUseCase";
 export * from "./IGetChatsByUserIdUseCase";
 export * from "./IGetMessagesByChatIdUseCase";
+export * from "./IUpdateChatUseCase";

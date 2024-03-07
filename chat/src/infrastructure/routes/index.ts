@@ -2,6 +2,7 @@ import { Router } from "express";
 import { controllers } from "@/presentation/controllers";
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { CurrentUser, RequireAuth } from "@zakaa/common";
+import { updateChat } from "../database/mongo/repositories";
 
 export const routes = (dependencies: IDependencies) => {
 
@@ -16,7 +17,8 @@ export const routes = (dependencies: IDependencies) => {
     const router = Router();
 
     router.route("/")
-        .post(CurrentUser, RequireAuth, createChat);
+        .post(CurrentUser, RequireAuth, createChat)
+        .put(CurrentUser, RequireAuth, updateChat);
 
     router.route("/message")
         .post(CurrentUser, RequireAuth, createMessage);
