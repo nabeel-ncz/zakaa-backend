@@ -9,6 +9,7 @@ const socketEventHandler = (socket: Socket, io: SocketIOServer) => {
 
     socket.on("send_message", (payload: { 
         content: string, 
+        contentType: string,
         chat: string, 
         sender: string,
         createdAt: Date | string

@@ -7,7 +7,7 @@ export const getMessagesByChatId = async (
     try {
         const messages = Message.find({
             chat: chatId
-        }).populate("messages");
+        });
         return messages;
     } catch (error: any) {
         throw new Error(error?.message || "Something went wrong!");
