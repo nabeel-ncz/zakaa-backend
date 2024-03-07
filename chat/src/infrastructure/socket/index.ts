@@ -7,9 +7,15 @@ const socketEventHandler = (socket: Socket, io: SocketIOServer) => {
         socket.join(payload.chatId);
     });
 
-    socket.on("send_message", (payload: { message: string, chatId: string, senderId: string }) => {
+    socket.on("send_message", (payload: { 
+        content: string, 
+        chat: string, 
+        sender: string,
+        createdAt: Date | string
+    }) => {
         console.log(`🚀----send_message event`, payload);
-        socket.to(payload?.chatId).emit("recieve_message", payload);
+        socket.to(payload?.chat).emit("recieve_message", payload);
+        console.log(`🚀----recieve_message emit`, payload);
     });
 
 }

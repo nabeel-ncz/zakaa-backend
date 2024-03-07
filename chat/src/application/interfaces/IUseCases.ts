@@ -3,9 +3,9 @@ import {
     ICreateMessageUseCase, 
     IGetChatByIdUseCase, 
     IGetChatsByUserIdUseCase,
-    IGetMessagesByChatIdUseCase
+    IGetMessagesByChatIdUseCase,
+    IUpdateChatUseCase
 } from "@/domain/useCases";
-
 import { IDependencies } from "./IDependencies";
 
 export interface IUseCases {
@@ -14,4 +14,5 @@ export interface IUseCases {
     getChatByIdUseCase: (dependencies: IDependencies) => IGetChatByIdUseCase;
     getChatsByUserIdUseCase: (dependencies: IDependencies) => IGetChatsByUserIdUseCase;
     getMessagesByChatId: (dependencies: IDependencies) => IGetMessagesByChatIdUseCase;
+    updateChatUseCase: (dependencies: IDependencies) => IUpdateChatUseCase;
 }
