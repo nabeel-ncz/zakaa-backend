@@ -2,7 +2,6 @@ import { Router } from "express";
 import { controllers } from "@/presentation/controllers";
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { CurrentUser, RequireAuth } from "@zakaa/common";
-import { updateChat } from "../database/mongo/repositories";
 
 export const routes = (dependencies: IDependencies) => {
 
@@ -11,7 +10,8 @@ export const routes = (dependencies: IDependencies) => {
         createMessage,
         getChatById,
         getChatsByUserId,
-        getMessagesByChatId
+        getMessagesByChatId,
+        updateChat
     } = controllers(dependencies);
 
     const router = Router();
