@@ -5,7 +5,8 @@ import {
     IFindUserByIdUseCase,
     IFindUserByEmailUseCase,
     IUpdatePasswordUseCase,
-    IVerifyAccountUseCase
+    IVerifyAccountUseCase,
+    IUpdateUserUseCase
 } from "@/domain/useCases";
 
 export interface IUseCases {
@@ -16,4 +17,5 @@ export interface IUseCases {
     findUserByEmailUseCase: (dependencies: any) => IFindUserByEmailUseCase;
     updatePasswordUseCase: (dependencies: any) => IUpdatePasswordUseCase;
     verifyAccountUseCase: (dependencies: any) => IVerifyAccountUseCase;
+    updateUserUseCase: (dependencies: any) => IUpdateUserUseCase;
 }

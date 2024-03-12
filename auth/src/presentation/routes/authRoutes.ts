@@ -17,13 +17,15 @@ export const authRoutes = (dependencies: IDependencies) => {
         resetPassword,
         findEmail,
         logout,
-        googleAuth
+        googleAuth,
+        updateProfile
     } = controllers(dependencies);
 
     const router = Router();
 
     router.route("/")
-        .get(CurrentUser, getUser);
+        .get(CurrentUser, getUser)
+        .put(updateProfile);
 
     router.route("/signup")
         .post(signup);
