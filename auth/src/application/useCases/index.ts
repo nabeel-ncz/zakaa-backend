@@ -5,3 +5,4 @@ export * from "./findUserByIdUseCase";
 export * from "./findUserByEmailUseCase";
 export * from "./updatePasswordUseCase";
 export * from "./verifyAccountUseCase";
+export * from "./updateUserUseCase";
