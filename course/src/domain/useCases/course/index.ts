@@ -5,3 +5,4 @@ export * from "./IGetCourseByIdUseCase";
 export * from "./IGetCoursesByInstructorIdUseCase";
 export * from "./IGetAvailableCoursesUseCase";
 export * from "./IUpdateLessonUseCase";
+export * from "./IAddLessonUseCase";

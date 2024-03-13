@@ -35,6 +35,17 @@ export interface IRepositories {
     getResultByUserId: (userId: string) => Promise<ResultEntity[] | null>;
     getResultById: (id: string) => Promise<ResultEntity | null>;
     getEnrollmentsByInstructorId: (instructorId: string) => Promise<EnrollmentEntity[] | null>;
+    addLesson: (data: {
+        courseId: Types.ObjectId | string;
+        title: string;
+        description: string;
+        thumbnail: string;
+        video: string;
+        attachments?: {
+            title: string;
+            url: string;
+        }
+    }) => Promise<CourseEntity | null>;
     createAnnouncement: (data: AnnouncementEntity) => Promise<AnnouncementEntity | null>;
     updateAnnouncement: (data: AnnouncementEntity) => Promise<AnnouncementEntity | null>;
     commentAnnouncement: (data: {

@@ -5,3 +5,4 @@ export * from "./getCourseById";
 export * from "./getCoursesByInstructorId";
 export * from "./getAvailableCourses";
 export * from "./updateLesson";
+export * from "./addLesson";

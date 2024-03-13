@@ -20,7 +20,8 @@ import {
     updateLessonController,
     uploadCourseContentController,
     uploadLessonContentController,
-    getAvailableCoursesController
+    getAvailableCoursesController,
+    addLessonController
 } from "@/presentation/controllers/course";
 
 import {
@@ -82,6 +83,7 @@ export const controllers = (dependencies: IDependencies) => {
         createAnnouncement: createAnnoucementController(dependencies),
         updateAnnouncement: updateAnnouncementController(dependencies),
         commentAnnouncement: commentAnnoucementController(dependencies),
-        reactAnnoucement: reactAnnoucementController(dependencies)
+        reactAnnoucement: reactAnnoucementController(dependencies),
+        addLesson: addLessonController(dependencies)
     }
 };

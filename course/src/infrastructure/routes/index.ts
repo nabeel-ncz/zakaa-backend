@@ -43,7 +43,8 @@ export const routes = (dependencies: IDependencies) => {
         createAnnouncement,
         updateAnnouncement,
         commentAnnouncement,
-        reactAnnoucement
+        reactAnnoucement,
+        addLesson
     } = controllers(dependencies);
 
     router.route("/")
@@ -52,7 +53,8 @@ export const routes = (dependencies: IDependencies) => {
         .put(CurrentUser, requireInstructor, updateCourse);
 
     router.route("/lesson")
-        .put(uploadSingleImage('thumbnail'), updateLesson);
+        .put(uploadSingleImage('thumbnail'), updateLesson)
+        .post(uploadSingleImage('thumbnail'), addLesson);
 
     router.route("/active")
         .get(getAvailableCourses);
