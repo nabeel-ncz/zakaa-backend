@@ -1,0 +1,1 @@
+![System design](./docs/design.png)
