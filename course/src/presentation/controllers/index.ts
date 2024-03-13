@@ -44,6 +44,7 @@ import {
     getResultByIdController,
     getResultByUseIdController
 } from "@/presentation/controllers/result";
+import { commentAnnoucementController, createAnnoucementController, reactAnnoucementController, updateAnnouncementController } from "./announcement";
 
 export const controllers = (dependencies: IDependencies) => {
     return {
@@ -77,6 +78,10 @@ export const controllers = (dependencies: IDependencies) => {
         getAllResults: getAllResultsController(dependencies),
         getResultByUserId: getResultByUseIdController(dependencies),
         getResultById: getResultByIdController(dependencies),
-        getEnrollmentsByInstructorId: getEnrollmentsByInstructorIdController(dependencies)
+        getEnrollmentsByInstructorId: getEnrollmentsByInstructorIdController(dependencies),
+        createAnnouncement: createAnnoucementController(dependencies),
+        updateAnnouncement: updateAnnouncementController(dependencies),
+        commentAnnouncement: commentAnnoucementController(dependencies),
+        reactAnnoucement: reactAnnoucementController(dependencies)
     }
 };
