@@ -3,7 +3,7 @@ import { controllers } from "@/presentation/controllers";
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { CurrentUser } from "@zakaa/common";
 
-export const authRoutes = (dependencies: IDependencies) => {
+export const routes = (dependencies: IDependencies) => {
 
     const {
         signup,
@@ -17,15 +17,13 @@ export const authRoutes = (dependencies: IDependencies) => {
         resetPassword,
         findEmail,
         logout,
-        googleAuth,
-        updateProfile
+        googleAuth
     } = controllers(dependencies);
 
     const router = Router();
 
     router.route("/")
-        .get(CurrentUser, getUser)
-        .put(updateProfile);
+        .get(CurrentUser, getUser);
 
     router.route("/signup")
         .post(signup);

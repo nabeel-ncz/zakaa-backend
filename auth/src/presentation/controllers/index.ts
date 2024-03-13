@@ -11,7 +11,6 @@ import { verifyAccountController } from "./verifyAccount";
 import { findEmailController } from "./findEmail";
 import { logoutController } from "./logout";
 import { googleAuthController } from "./googleAuth";
-import { updateProfileController } from "./updateProfile";
 
 export const controllers = (dependencies: IDependencies) => {
     return {
@@ -26,7 +25,6 @@ export const controllers = (dependencies: IDependencies) => {
         verifyAccount: verifyAccountController(dependencies),
         findEmail: findEmailController(dependencies),
         logout: logoutController(dependencies),
-        googleAuth: googleAuthController(dependencies),
-        updateProfile: updateProfileController(dependencies)
+        googleAuth: googleAuthController(dependencies)
     }
 };
