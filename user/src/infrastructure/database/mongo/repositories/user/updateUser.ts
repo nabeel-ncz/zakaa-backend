@@ -8,7 +8,7 @@ export const updateUser = async (
 
         const { _id, ...rest } = data;
 
-        const updated = await User.findOneAndUpdate(_id, {
+        const updated = await User.findByIdAndUpdate(_id, {
             $set: { ...rest }
         }, {
             new: true

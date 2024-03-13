@@ -1,4 +1,5 @@
 import { IDependencies } from "@/application/interfaces/IDependencies";
+import { userUpdatedProducer } from "@/infrastructure/messages/kafka/producers";
 import { Request, Response, NextFunction } from "express";
 
 export const updateUserProfileController = (dependencies: IDependencies) => {
@@ -23,6 +24,8 @@ export const updateUserProfileController = (dependencies: IDependencies) => {
             }
 
             //produce message -> auth, chat, course
+            userUpdatedProducer(result);
+            //=====================================
 
             res.status(200).json({
                 success: true,
@@ -30,7 +33,6 @@ export const updateUserProfileController = (dependencies: IDependencies) => {
                 message: "User updated"
             });
 
-            //=====================================
 
         } catch (error) {
             next(error);

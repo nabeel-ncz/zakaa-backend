@@ -1,9 +1,9 @@
 import instructorApplicationAcceptedProducer from "./instructorApplicationAcceptedProducer";
 import instructorVerifiedProudcer from "./instructorVerifiedProudcer";
-import updateUserProducer from "./updateUserProducer";
+import userUpdatedProducer from "./userUpdatedProducer";
 
 export {
     instructorApplicationAcceptedProducer,
     instructorVerifiedProudcer,
-    updateUserProducer
+    userUpdatedProducer
 }
