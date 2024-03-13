@@ -6,3 +6,4 @@ export * from "./updatePassword";
 export * from "./updateOTP";
 export * from "./verify";
 export * from "./updateRole";
+export * from "./updateUser";
