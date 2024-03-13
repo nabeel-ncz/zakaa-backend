@@ -21,6 +21,9 @@ export const updateUser = async (
         return updated;
 
     } catch (error: any) {
+        if(error?.code === 11000){
+            throw new Error("Username already exist in the database");
+        }
         throw new Error(error?.message);
     }
 }
