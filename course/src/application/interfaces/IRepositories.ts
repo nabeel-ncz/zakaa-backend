@@ -58,6 +58,11 @@ export interface IRepositories {
         userRef: Types.ObjectId | string;
         type: 'like' | 'dislike' | string;
     }) => Promise<AnnouncementEntity | null>;
+    getAnnouncements: (data: {
+        page?: number;
+        limit?: number;
+    }) => Promise<AnnouncementEntity[] | null>;
+    getAnnouncementsByInstructorId: (id: string) => Promise<AnnouncementEntity[] | null>;
 }
 
 

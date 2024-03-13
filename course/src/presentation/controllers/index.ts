@@ -45,7 +45,16 @@ import {
     getResultByIdController,
     getResultByUseIdController
 } from "@/presentation/controllers/result";
-import { commentAnnoucementController, createAnnoucementController, reactAnnoucementController, updateAnnouncementController } from "./announcement";
+
+import {
+    commentAnnoucementController,
+    createAnnoucementController,
+    getAnnouncementsByInstructorIdController,
+    getAnnouncementsController,
+    reactAnnoucementController,
+    updateAnnouncementController
+} from "./announcement";
+
 
 export const controllers = (dependencies: IDependencies) => {
     return {
@@ -84,6 +93,8 @@ export const controllers = (dependencies: IDependencies) => {
         updateAnnouncement: updateAnnouncementController(dependencies),
         commentAnnouncement: commentAnnoucementController(dependencies),
         reactAnnoucement: reactAnnoucementController(dependencies),
-        addLesson: addLessonController(dependencies)
+        addLesson: addLessonController(dependencies),
+        getAnnoucements: getAnnouncementsController(dependencies),
+        getAnnouncementsByInstructorId: getAnnouncementsByInstructorIdController(dependencies)
     }
 };
