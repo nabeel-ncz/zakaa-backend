@@ -3,11 +3,12 @@ import {
     instructorVerificationConsumer,
     userCreatedConsumer,
     userVerifiedConsumer,
-    coursePaymentSuccessConsumer
+    coursePaymentSuccessConsumer,
+    userUpdatedConsumer
 } from "./consumers";
 
 export interface ICourseSubscriber extends Pick<
-    ISubscriber, 'userCreated' | 'userVerified' | 'instructorVerified' | 'coursePaymentSuccess'
+    ISubscriber, 'userCreated' | 'userVerified' | 'instructorVerified' | 'coursePaymentSuccess' | 'userUpdated'
 > { }
 
 export const createSubscriber = (): ICourseSubscriber => {
@@ -15,6 +16,7 @@ export const createSubscriber = (): ICourseSubscriber => {
         userCreated: userCreatedConsumer,
         userVerified: userVerifiedConsumer,
         instructorVerified: instructorVerificationConsumer,
-        coursePaymentSuccess: coursePaymentSuccessConsumer
+        coursePaymentSuccess: coursePaymentSuccessConsumer,
+        userUpdated: userUpdatedConsumer
     }
 }
