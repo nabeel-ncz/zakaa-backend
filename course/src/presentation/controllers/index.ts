@@ -20,7 +20,8 @@ import {
     updateLessonController,
     uploadCourseContentController,
     uploadLessonContentController,
-    getAvailableCoursesController
+    getAvailableCoursesController,
+    addLessonController
 } from "@/presentation/controllers/course";
 
 import {
@@ -44,6 +45,16 @@ import {
     getResultByIdController,
     getResultByUseIdController
 } from "@/presentation/controllers/result";
+
+import {
+    commentAnnoucementController,
+    createAnnoucementController,
+    getAnnouncementsByInstructorIdController,
+    getAnnouncementsController,
+    reactAnnoucementController,
+    updateAnnouncementController
+} from "./announcement";
+
 
 export const controllers = (dependencies: IDependencies) => {
     return {
@@ -77,6 +88,13 @@ export const controllers = (dependencies: IDependencies) => {
         getAllResults: getAllResultsController(dependencies),
         getResultByUserId: getResultByUseIdController(dependencies),
         getResultById: getResultByIdController(dependencies),
-        getEnrollmentsByInstructorId: getEnrollmentsByInstructorIdController(dependencies)
+        getEnrollmentsByInstructorId: getEnrollmentsByInstructorIdController(dependencies),
+        createAnnouncement: createAnnoucementController(dependencies),
+        updateAnnouncement: updateAnnouncementController(dependencies),
+        commentAnnouncement: commentAnnoucementController(dependencies),
+        reactAnnoucement: reactAnnoucementController(dependencies),
+        addLesson: addLessonController(dependencies),
+        getAnnoucements: getAnnouncementsController(dependencies),
+        getAnnouncementsByInstructorId: getAnnouncementsByInstructorIdController(dependencies)
     }
 };

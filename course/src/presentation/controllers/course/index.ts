@@ -8,3 +8,4 @@ export * from "./updateLessonController";
 export * from "./uploadCourseContentController";
 export * from "./uploadLessonContentController";
 export * from "./getAvailableCoursesController";
+export * from "./addLessonController";

@@ -39,7 +39,14 @@ export const routes = (dependencies: IDependencies) => {
         getAllResults,
         getResultByUserId,
         getResultById,
-        getEnrollmentsByInstructorId
+        getEnrollmentsByInstructorId,
+        createAnnouncement,
+        updateAnnouncement,
+        commentAnnouncement,
+        reactAnnoucement,
+        addLesson,
+        getAnnoucements,
+        getAnnouncementsByInstructorId
     } = controllers(dependencies);
 
     router.route("/")
@@ -48,7 +55,8 @@ export const routes = (dependencies: IDependencies) => {
         .put(CurrentUser, requireInstructor, updateCourse);
 
     router.route("/lesson")
-        .put(uploadSingleImage('thumbnail'), updateLesson);
+        .put(uploadSingleImage('thumbnail'), updateLesson)
+        .post(uploadSingleImage('thumbnail'), addLesson);
 
     router.route("/active")
         .get(getAvailableCourses);
@@ -132,6 +140,20 @@ export const routes = (dependencies: IDependencies) => {
 
     router.route("/enrollment/:id")
         .get(CurrentUser, RequireAuth, getEnrollmentById);
+
+    router.route("/announcement")
+        .get(getAnnoucements)
+        .post(createAnnouncement)
+        .put(updateAnnouncement);
+
+    router.route("/announcement/instructor/:instructorId")
+        .get(getAnnouncementsByInstructorId);
+
+    router.route("/announcement/comment")
+        .post(commentAnnouncement);
+
+    router.route("/announcement/:type")
+        .post(reactAnnoucement);
 
     router.route("/:id")
         .get(getCourse)
