@@ -1,15 +1,15 @@
 import { User } from "@/infrastructure/database/mongo/models";
 import { UserEntity } from "@/domain/entities";
 
-export const update = async (
+export const updateUser = async (
     data: UserEntity
 ): Promise<UserEntity | null> => {
     try {
 
-        const { _id, ...updates } = data;
+        const { _id, ...rest } = data;
 
-        const updated = await User.findByIdAndUpdate(_id, {
-            $set: { ...updates }
+        const updated = await User.findOneAndUpdate(_id, {
+            $set: { ...rest }
         }, {
             new: true
         });

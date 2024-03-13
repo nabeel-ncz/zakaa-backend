@@ -1,16 +1,18 @@
 import { ISubscriber } from "@zakaa/common";
 import {
     sendVerificationMailConsumer,
-    instructorVerificationConsumer
+    instructorVerificationConsumer,
+    userUpdatedConsumer
 } from "./consumers";
 
 export interface IAuthSubscriber extends Pick<
-    ISubscriber, 'sendVerificationMail' | 'instructorVerified'
+    ISubscriber, 'sendVerificationMail' | 'instructorVerified' | 'userUpdated'
 > { }
 
 export const createSubscriber = (): IAuthSubscriber => {
     return {
         sendVerificationMail: sendVerificationMailConsumer,
-        instructorVerified: instructorVerificationConsumer
+        instructorVerified: instructorVerificationConsumer,
+        userUpdated: userUpdatedConsumer
     }
 }
