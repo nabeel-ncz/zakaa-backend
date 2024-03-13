@@ -18,11 +18,19 @@ export const updateUserProfileController = (dependencies: IDependencies) => {
             const result = await updateUserUseCase(dependencies)
                 .execute(req.body);
 
+            if(!result){
+                throw new Error("User profile updation failed");
+            }
+
+            //produce message -> auth, chat, course
+
             res.status(200).json({
                 success: true,
                 data: result,
                 message: "User updated"
             });
+
+            //=====================================
 
         } catch (error) {
             next(error);
