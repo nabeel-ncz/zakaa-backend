@@ -1,12 +1,12 @@
 import { AnnouncementEntity } from "@/domain/entities/announcementEntity";
 import { Annoucement } from "../../models";
 
-export const updateAnnouncement = (
+export const updateAnnouncement = async (
     data: AnnouncementEntity
 ): Promise<AnnouncementEntity | null> => {
     try {
         const { _id, ...rest } = data;
-        const updated = Annoucement.findByIdAndUpdate(_id, {
+        const updated = await Annoucement.findByIdAndUpdate(_id, {
             $set: { ...rest }
         }, {
             new: true

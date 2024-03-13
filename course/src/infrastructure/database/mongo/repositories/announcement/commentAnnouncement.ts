@@ -2,7 +2,7 @@ import { AnnouncementEntity } from "@/domain/entities/announcementEntity";
 import { Annoucement } from "../../models";
 import { Types } from "mongoose";
 
-export const commentAnnouncement = (
+export const commentAnnouncement = async (
     data: {
         _id: Types.ObjectId | string;
         userRef: Types.ObjectId | string;
@@ -13,7 +13,7 @@ export const commentAnnouncement = (
 
         const { _id, ...comment } = data;
 
-        const updated = Annoucement.findByIdAndUpdate(_id, {
+        const updated = await Annoucement.findByIdAndUpdate(_id, {
             $push: { comments: comment }
         }, {
             new: true

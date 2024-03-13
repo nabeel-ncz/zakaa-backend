@@ -2,7 +2,7 @@ import { AnnouncementEntity } from "@/domain/entities/announcementEntity";
 import { Annoucement } from "../../models";
 import { Types } from "mongoose";
 
-export const reactAnnoucement = (
+export const reactAnnoucement = async (
     data: {
         _id: Types.ObjectId | string;
         userRef: Types.ObjectId | string;
@@ -12,14 +12,14 @@ export const reactAnnoucement = (
     try {
         const { _id, userRef, type } = data;
         if (type === 'like') {
-            const updated = Annoucement.findByIdAndUpdate(_id, {
+            const updated = await Annoucement.findByIdAndUpdate(_id, {
                 $push: { likes: userRef }
             }, {
                 new: true
             })
             return updated;
         } else if (type === 'dislike') {
-            const updated = Annoucement.findByIdAndUpdate(_id, {
+            const updated = await Annoucement.findByIdAndUpdate(_id, {
                 $push: { dislikes: userRef }
             }, {
                 new: true

@@ -19,7 +19,7 @@ export const addLesson = async (
 
         const { courseId, ...rest } = data;
 
-        const updated = Course.findByIdAndUpdate(courseId, {
+        const updated = await Course.findByIdAndUpdate(courseId, {
             $push: { lessons: { ...rest } }
         }, { new: true });
 
