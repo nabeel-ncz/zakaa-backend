@@ -9,11 +9,15 @@ export default async (
     data: {
         userId: string,
         courseId: string,
-        amount: number
+        amount: number,
+        instructorId: string
     }
 ) => {
 
     try {
+
+        const { userId, courseId, amount, instructorId } = data;
+
         await producer.connect();
 
         const messages = [
@@ -21,14 +25,22 @@ export default async (
                 topic: USER_SERVICE_TOPIC,
                 messages: [{
                     key: COURSE_PAYMENT_SUCCESS_MESSAGE,
-                    value: JSON.stringify(data)
+                    value: JSON.stringify({
+                        userId: instructorId,
+                        courseId: courseId,
+                        amount: amount
+                    })
                 }]
             },
             {
                 topic: COURSE_SERVICE_TOPIC,
                 messages: [{
                     key: COURSE_PAYMENT_SUCCESS_MESSAGE,
-                    value: JSON.stringify(data)
+                    value: JSON.stringify({
+                        userId: userId,
+                        courseId: courseId,
+                        amount: amount
+                    })
                 }]
             }
         ]
