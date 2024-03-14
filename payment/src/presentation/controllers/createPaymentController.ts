@@ -12,12 +12,12 @@ export const createPaymentController = (dependencies: IDependencies) => {
 
         try {
 
-            const data = req.body;
+            const { instructorId, ...data } = req.body;
 
             const result = await createPaymentUseCase(dependencies)
                 .execute(data);
 
-            if(!result){
+            if (!result) {
                 throw new Error("payment failed!");
             }
 
@@ -25,7 +25,8 @@ export const createPaymentController = (dependencies: IDependencies) => {
             await coursePaymentSuccessProducer({
                 userId: result.userId.toString(),
                 courseId: result.courseId.toString(),
-                amount: result.amount
+                amount: result.amount,
+                instructorId
             });
             //================================
 
