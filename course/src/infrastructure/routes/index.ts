@@ -57,7 +57,7 @@ export const routes = (dependencies: IDependencies) => {
 
     router.route("/lesson")
         .put(uploadSingleImage('thumbnail'), updateLesson)
-        .post(uploadSingleImage('thumbnail'), addLesson);
+        .post(addLesson);
 
     router.route("/active")
         .get(getAvailableCourses);

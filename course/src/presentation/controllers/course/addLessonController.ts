@@ -1,4 +1,3 @@
-import { resizeCourseThumbnail } from "@/_lib/sharp";
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { Request, Response, NextFunction } from "express";
 
@@ -13,15 +12,8 @@ export const addLessonController = (dependencies: IDependencies) => {
         try {
             const body = req.body;
 
-            let thumbnail = await resizeCourseThumbnail(req.file);
-
-            if(!thumbnail){
-                throw new Error("Thumbnail is required for lesson creation!");
-            }
-
             const result = await addLessonUseCase(dependencies).execute({
-                ...body,
-                thumbnail
+                ...body
             });
 
             if (!result) {
