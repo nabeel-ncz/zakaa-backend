@@ -10,24 +10,32 @@ export const reactAnnoucement = async (
     }
 ): Promise<AnnouncementEntity | null> => {
     try {
-        const { _id, userRef, type } = data;
-        if (type === 'like') {
-            const updated = await Annoucement.findByIdAndUpdate(_id, {
-                $push: { likes: userRef }
-            }, {
-                new: true
-            })
-            return updated;
-        } else if (type === 'dislike') {
-            const updated = await Annoucement.findByIdAndUpdate(_id, {
-                $push: { dislikes: userRef }
-            }, {
-                new: true
-            })
-            return updated;
-        } else {
-            throw new Error("Error reacting to annoucement");
+        if (data?.type !== 'like' && data?.type !== 'dislike') {
+            throw new Error("Invalid reaction type. It must be either 'like' or 'dislike'.");
         }
+
+        let updateQuery;
+
+        if (data?.type === 'like') {
+            updateQuery = {
+                $addToSet: { likes: data?.userRef },
+                $pull: { dislikes: data?.userRef }
+            };
+        } else {
+            updateQuery = {
+                $addToSet: { dislikes: data?.userRef },
+                $pull: { likes: data?.userRef }
+            };
+        }
+
+        const options = { new: true };
+        const updated = await Annoucement.findByIdAndUpdate(data?._id, updateQuery, options);
+
+        if (!updated) {
+            throw new Error("Announcement not found.");
+        }
+
+        return updated;
     } catch (error: Error | any) {
         throw new Error(error?.message || "Error reacting annoucement");
     }
