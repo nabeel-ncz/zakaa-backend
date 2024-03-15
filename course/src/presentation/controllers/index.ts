@@ -49,6 +49,7 @@ import {
 import {
     commentAnnoucementController,
     createAnnoucementController,
+    getAnnouncementByIdController,
     getAnnouncementsByInstructorIdController,
     getAnnouncementsController,
     reactAnnoucementController,
@@ -95,6 +96,7 @@ export const controllers = (dependencies: IDependencies) => {
         reactAnnoucement: reactAnnoucementController(dependencies),
         addLesson: addLessonController(dependencies),
         getAnnoucements: getAnnouncementsController(dependencies),
-        getAnnouncementsByInstructorId: getAnnouncementsByInstructorIdController(dependencies)
+        getAnnouncementsByInstructorId: getAnnouncementsByInstructorIdController(dependencies),
+        getAnnouncementById: getAnnouncementByIdController(dependencies)
     }
 };

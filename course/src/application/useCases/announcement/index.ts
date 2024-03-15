@@ -4,3 +4,4 @@ export * from "./commentAnnouncementUseCase";
 export * from "./reactAnnouncementUseCase";
 export * from "./getAnnouncementsUseCase";
 export * from "./getAnnouncementsByInstructorIdUseCase";
+export * from "./getAnnouncementByIdUseCase";

@@ -4,3 +4,4 @@ export * from "./commentAnnouncement";
 export * from "./reactAnnoucement";
 export * from "./getAnnouncements";
 export * from "./getAnnouncementsByInstructorId";
+export * from "./getAnnouncementById";

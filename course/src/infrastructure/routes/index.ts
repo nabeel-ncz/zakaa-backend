@@ -46,7 +46,8 @@ export const routes = (dependencies: IDependencies) => {
         reactAnnoucement,
         addLesson,
         getAnnoucements,
-        getAnnouncementsByInstructorId
+        getAnnouncementsByInstructorId,
+        getAnnouncementById
     } = controllers(dependencies);
 
     router.route("/")
@@ -151,6 +152,9 @@ export const routes = (dependencies: IDependencies) => {
 
     router.route("/announcement/comment")
         .post(commentAnnouncement);
+
+    router.route("/announcement/byId/:id")
+        .get(getAnnouncementById);
 
     router.route("/announcement/:type")
         .post(reactAnnoucement);

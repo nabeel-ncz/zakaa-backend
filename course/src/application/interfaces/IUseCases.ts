@@ -26,7 +26,7 @@ import {
 } from "@/domain/useCases";
 import { IDependencies } from "./IDependencies";
 import { ICreateResultUseCase, IGetAllResultsUseCase, IGetResultByIdUseCase, IGetResultByUserIdUseCase } from "@/domain/useCases/result";
-import { ICommentAnnouncementUseCase, ICreateAnnouncementUseCase, IGetAnnouncementsByInstructorIdUseCase, IGetAnnouncementsUseCase, IReactAnnouncementUseCase, IUpdateAnnouncementUseCase } from "@/domain/useCases/announcement";
+import { ICommentAnnouncementUseCase, ICreateAnnouncementUseCase, IGetAnnouncementByIdUseCase, IGetAnnouncementsByInstructorIdUseCase, IGetAnnouncementsUseCase, IReactAnnouncementUseCase, IUpdateAnnouncementUseCase } from "@/domain/useCases/announcement";
 
 export interface IUseCases {
     createCourseUseCase: (dependencies: IDependencies) => ICreateCourseUseCase;
@@ -63,5 +63,6 @@ export interface IUseCases {
     reactAnnouncementUseCase: (dependencies: IDependencies) => IReactAnnouncementUseCase;
     getAnnouncementsUseCase: (dependencies: IDependencies) => IGetAnnouncementsUseCase;
     getAnnouncementsByInstructorIdUseCase: (dependencies: IDependencies) => IGetAnnouncementsByInstructorIdUseCase;
+    getAnnouncementByIdUseCase: (dependencies: IDependencies) => IGetAnnouncementByIdUseCase;
 }
 

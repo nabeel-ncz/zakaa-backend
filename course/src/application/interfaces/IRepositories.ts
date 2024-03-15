@@ -63,6 +63,7 @@ export interface IRepositories {
         limit?: number;
     }) => Promise<AnnouncementEntity[] | null>;
     getAnnouncementsByInstructorId: (id: string) => Promise<AnnouncementEntity[] | null>;
+    getAnnouncementById: (id: string) => Promise<AnnouncementEntity | null>;
 }
 
 
