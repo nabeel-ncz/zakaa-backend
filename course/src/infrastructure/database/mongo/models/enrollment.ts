@@ -1,6 +1,17 @@
 import { EnrollmentEntity } from "@/domain/entities";
 import { Schema, model } from "mongoose";
 
+const LessonProgressSchema = new Schema({
+    lessonId: {
+        type: Schema.Types.ObjectId,
+        required: true,
+    },
+    totalTimeWatched: {
+        type: Number,
+        default: 0,
+    },
+});
+
 const enrollmentSchema = new Schema({
     userId: {
         type: Schema.Types.ObjectId,
@@ -19,22 +30,10 @@ const enrollmentSchema = new Schema({
         }
     },
     progress: {
-        completedLessons: {
-            type: [Schema.Types.ObjectId],
-            // default: function () {
-            //     return [];
-            // }
-        },
-        completedAssessments: {
-            type: [Schema.Types.ObjectId],
-            // default: function () {
-            //     return [];
-            // }
-        },
-        currentLesson: {
-            type: Schema.Types.ObjectId,
-            // default: ""
-        }
+        completedLessons: [Schema.Types.ObjectId],
+        completedAssessments: [Schema.Types.ObjectId],
+        currentLesson: Schema.Types.ObjectId,
+        lessonProgress: [LessonProgressSchema]
     }
 });
 
