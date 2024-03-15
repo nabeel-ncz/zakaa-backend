@@ -13,7 +13,7 @@ export const getAnnouncements = async (
         const limit = data.limit || 10;
         const skip = (page - 1) * limit;
 
-        const result = await Annoucement.find().skip(skip).limit(limit);
+        const result = await Annoucement.find().skip(skip).limit(limit).populate("userRef comments.userRef");
 
         return result;
 

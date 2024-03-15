@@ -3,7 +3,8 @@ import { Schema, model } from "mongoose";
 
 const commentSchema = new Schema({
     userRef: {
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref: "users",
         required: true
     },
     comment: {
@@ -15,6 +16,7 @@ const commentSchema = new Schema({
 const announcementSchema = new Schema<AnnouncementEntity>({
     userRef: {
         type: Schema.Types.ObjectId,
+        ref: "users",
         required: true
     },
     title: {
@@ -39,3 +41,4 @@ const announcementSchema = new Schema<AnnouncementEntity>({
 })
 
 export const Annoucement = model("announcement", announcementSchema);
+
