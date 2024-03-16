@@ -29,7 +29,7 @@ export interface IRepositories {
     getEnrollmentByUserId: (userId: string) => Promise<EnrollmentEntity[] | null>;
     getEnrollmentById: (id: string) => Promise<EnrollmentEntity | null>;
     getAssessmentsByCourseId: (id: string) => Promise<AssessmentEntity[] | null>;
-    updateEnrollment: (data: EnrollmentEntity) => Promise<EnrollmentEntity | null>;
+    updateEnrollment: (data: any) => Promise<EnrollmentEntity | null>;
     createResult: (data: ResultEntity) => Promise<ResultEntity | null>;
     getAllResults: () => Promise<ResultEntity[] | null>;
     getResultByUserId: (userId: string) => Promise<ResultEntity[] | null>;
