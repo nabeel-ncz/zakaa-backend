@@ -18,6 +18,8 @@ export const config = {
     },
     kafka: {
         broker_urls: envString('KAFKA_BROKER_URLS', 'localhost:29092'),
-        client_id: envString('KAFKA_CLIENT_ID', 'kafka-notification-client')
+        client_id: envString('KAFKA_CLIENT_ID', 'kafka-notification-client'),
+        username: envString('KAFKA_USERNAME', ''),
+        password: envString('KAFKA_PASSWORD', '')
     }
 };
