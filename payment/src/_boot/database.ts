@@ -4,7 +4,7 @@ import { config } from "@/_boot/config";
 export default async () => {
     try {
 
-        const conn = await mongoose.connect(`${config.mongo.host}/${config.mongo.database}`);
+        const conn = await mongoose.connect(`${config.mongo.host}/${config.mongo.database}?retryWrites=true&w=majority&appName=Cluster0`);
         console.log(`🍃 Database Established connection with MongoDB`);
         console.log(`@-${conn.connection.host}`)
 
