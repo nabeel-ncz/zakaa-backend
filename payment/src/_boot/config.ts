@@ -18,7 +18,10 @@ export const config = {
     },
     kafka: {
         broker_urls: envString('KAFKA_BROKER_URLS', 'localhost:29092'),
-        client_id: envString('KAFKA_CLIENT_ID', 'kafka-payment-client')
+        client_id: envString('KAFKA_CLIENT_ID', 'kafka-payment-client'),
+        username: envString('KAFKA_USERNAME', ''),
+        password: envString('KAFKA_PASSWORD', '')
+
     },
     fronend: {
         url: envString('FRONTEND_URL', 'http://localhost:3000')
