@@ -18,7 +18,9 @@ export const config = {
     },
     kafka: {
         broker_urls: envString('KAFKA_BROKER_URLS', 'localhost:29092'),
-        client_id: envString('KAFKA_CLIENT_ID', 'kafka-chat-client')
+        client_id: envString('KAFKA_CLIENT_ID', 'kafka-chat-client'),
+        username: envString('DB_USERNAME', 'mongo_username'),
+        password: envString('DB_PASSWORD', 'mongo_password')
     },
     frontend: {
         url: envString('FRONTEND_URL', 'http://localhost:3000')
