@@ -15,5 +15,5 @@ export const kafka = new Kafka({
 
 export const producer: Producer = kafka.producer();
 export const consumer: Consumer = kafka.consumer({
-    groupId: "auth-service-kafka-group",
+    groupId: "chat-service-kafka-group",
 });

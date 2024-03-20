@@ -19,10 +19,10 @@ export const config = {
     kafka: {
         broker_urls: envString('KAFKA_BROKER_URLS', 'localhost:29092'),
         client_id: envString('KAFKA_CLIENT_ID', 'kafka-chat-client'),
-        username: envString('DB_USERNAME', 'mongo_username'),
-        password: envString('DB_PASSWORD', 'mongo_password')
+        username: envString('KAFKA_USERNAME', ''),
+        password: envString('KAFKA_PASSWORD', '')
     },
     frontend: {
-        url: envString('FRONTEND_URL', 'http://localhost:3000')
+        url: envString('FRONTEND_URL', 'https://zakaa.nabeel.cloud')
     }
 };
