@@ -4,6 +4,7 @@ import {
     IFindAllInstructorApplicationsUseCase,
     IFindUserByIdUseCase,
     IFindUsersByUsernameUseCase,
+    IGetAllInstructorsUseCase,
     IUpdateUserRoleUseCase,
     IUpdateUserUseCase
 } from "@/domain/useCases";
@@ -18,4 +19,5 @@ export interface IUseCases {
     updateUserUseCase: (dependencies: IDependencies) => IUpdateUserUseCase;
     findUserByIdUseCase: (dependencies: IDependencies) => IFindUserByIdUseCase;
     findUsersByUsernameUseCase: (dependencies: IDependencies) => IFindUsersByUsernameUseCase;
+    getAllInstructorsUseCase: (dependencies: IDependencies) => IGetAllInstructorsUseCase;
 }

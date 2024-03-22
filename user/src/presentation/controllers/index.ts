@@ -6,6 +6,7 @@ import { verifyInstructorApplicationController } from "./verifyInstructorApplica
 import { updateUserProfileController } from "./updateUserProfileController";
 import { getUserProfileController } from "./getUserProfileController";
 import { getUsersByUsernameController } from "./getUsersByUsernameController";
+import { getAllInstructorsController } from "./getAllInstructorsController";
 
 export const controllers = (dependencies: IDependencies) => {
     return {
@@ -15,6 +16,7 @@ export const controllers = (dependencies: IDependencies) => {
         verifyInstructorApplication: verifyInstructorApplicationController(dependencies),
         updateUserProfile: updateUserProfileController(dependencies),
         getUserProfile: getUserProfileController(dependencies),
-        getUsersByUsername: getUsersByUsernameController(dependencies)
+        getUsersByUsername: getUsersByUsernameController(dependencies),
+        getAllInstructors: getAllInstructorsController(dependencies)
     }
 };

@@ -10,4 +10,5 @@ export interface IRepositories {
     updateUser: (data: UserEntity) => Promise<UserEntity | null>;
     findUserById: (id: string) => Promise<UserEntity | null>;
     findUsersByUsername: (username: string) => Promise<UserEntity[] | null>;
+    getAllInstructors: (page?: number, limit?: number) => Promise<UserEntity[] | null>;
 }

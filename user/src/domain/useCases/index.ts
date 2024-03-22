@@ -5,3 +5,4 @@ export * from "./IUpdateUserRoleUseCase";
 export * from "./IUpdateUserUseCase";
 export * from "./IFindUserByIdUseCase";
 export * from "./IFindUsersByUsernameUseCase";
+export * from "./IGetAllInstructorsUseCase";

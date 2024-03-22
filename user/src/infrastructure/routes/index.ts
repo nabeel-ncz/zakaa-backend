@@ -22,6 +22,9 @@ export const routes = (dependencies: IDependencies) => {
         .get(CurrentUser, RequireAuth, getUserProfile)
         .put(CurrentUser, RequireAuth, updateUserProfile);
 
+    router.route("/instructor")
+        .get()
+
     router.route("/instructor/verify")
         .get(CurrentUser, RequireAuth, verifyInstructorApplication);
 
