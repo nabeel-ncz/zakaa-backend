@@ -13,7 +13,8 @@ export const routes = (dependencies: IDependencies) => {
         verifyInstructorApplication,
         updateUserProfile,
         getUserProfile,
-        getUsersByUsername
+        getUsersByUsername,
+        getAllInstructors
     } = controllers(dependencies);
 
     const router = Router();
@@ -23,7 +24,7 @@ export const routes = (dependencies: IDependencies) => {
         .put(CurrentUser, RequireAuth, updateUserProfile);
 
     router.route("/instructor")
-        .get()
+        .get(getAllInstructors);
 
     router.route("/instructor/verify")
         .get(CurrentUser, RequireAuth, verifyInstructorApplication);
@@ -38,7 +39,7 @@ export const routes = (dependencies: IDependencies) => {
         .put(CurrentUser, requireAdmin, acceptInstructorApplication);
 
     router.route("/username/:username")
-        .get(CurrentUser, RequireAuth, getUsersByUsername);
+        .get(getUsersByUsername);
 
     return router;
 }
