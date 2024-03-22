@@ -64,6 +64,11 @@ export interface IRepositories {
     }) => Promise<AnnouncementEntity[] | null>;
     getAnnouncementsByInstructorId: (id: string) => Promise<AnnouncementEntity[] | null>;
     getAnnouncementById: (id: string) => Promise<AnnouncementEntity | null>;
+    getTopInstructorsByEnrollments: () => Promise<
+        {
+            instructorDetails: any
+            totalEnrollments: number;
+        }[] | null>;
 }
 
 

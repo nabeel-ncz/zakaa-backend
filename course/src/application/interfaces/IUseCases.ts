@@ -22,7 +22,8 @@ import {
     IGetAssessmentsByCourseIdUseCase,
     IUpdateEnrollmentUseCase,
     IGetEnrollmentsByInstructorIdUseCase,
-    IAddLessonUseCase
+    IAddLessonUseCase,
+    IGetTopInstructorsByEnrollmentsUseCase
 } from "@/domain/useCases";
 import { IDependencies } from "./IDependencies";
 import { ICreateResultUseCase, IGetAllResultsUseCase, IGetResultByIdUseCase, IGetResultByUserIdUseCase } from "@/domain/useCases/result";
@@ -64,5 +65,6 @@ export interface IUseCases {
     getAnnouncementsUseCase: (dependencies: IDependencies) => IGetAnnouncementsUseCase;
     getAnnouncementsByInstructorIdUseCase: (dependencies: IDependencies) => IGetAnnouncementsByInstructorIdUseCase;
     getAnnouncementByIdUseCase: (dependencies: IDependencies) => IGetAnnouncementByIdUseCase;
+    getTopInstructorsByEnrollmentsUseCase: (dependencies: IDependencies) => IGetTopInstructorsByEnrollmentsUseCase;
 }
 

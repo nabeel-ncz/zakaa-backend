@@ -47,7 +47,8 @@ export const routes = (dependencies: IDependencies) => {
         addLesson,
         getAnnoucements,
         getAnnouncementsByInstructorId,
-        getAnnouncementById
+        getAnnouncementById,
+        getTopInstructors
     } = controllers(dependencies);
 
     router.route("/")
@@ -62,7 +63,10 @@ export const routes = (dependencies: IDependencies) => {
     router.route("/active")
         .get(getAvailableCourses);
 
-    router.route("/instructor/:instructorId")
+    router.route("/instructor/top_by_enrollment")
+        .get(getTopInstructors);
+    
+        router.route("/instructor/:instructorId")
         .get(CurrentUser, requireInstructor, getInstructorCourses);
 
     router.route("/:id/active")
