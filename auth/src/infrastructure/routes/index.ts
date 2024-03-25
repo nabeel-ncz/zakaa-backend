@@ -57,6 +57,11 @@ export const routes = (dependencies: IDependencies) => {
 
     router.route("/reset-password")
         .post(CurrentUser, resetPassword);
+    
+    router.route("/test-end-point")
+        .get((req, res) => {
+            res.send("Test end point working!");
+        });
 
     return router;
 }
